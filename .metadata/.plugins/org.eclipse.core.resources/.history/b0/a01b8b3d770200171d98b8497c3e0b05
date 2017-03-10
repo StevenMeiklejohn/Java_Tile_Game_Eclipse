@@ -1,0 +1,36 @@
+package com.codeclan.state;
+
+import java.awt.Graphics;
+
+import com.codeclan.entities.creatures.Player;
+import com.codeclan.gfx.Assets;
+import com.codeclan.tilegame.Game;
+
+public class GameState extends State{
+	
+	private Player player;
+	
+	public GameState(Game game){
+		super(game);
+		player = new Player(100, 100);
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		player.update();
+		
+	}
+
+	@Override
+	public void render(Graphics g) {
+//		g.drawImage(Assets.player1, 0, 0, null);
+		player.render(g);
+
+		
+	}
+	
+	
+
+}

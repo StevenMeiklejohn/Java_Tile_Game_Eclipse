@@ -1,0 +1,5 @@
+package com.codeclan.tilegame.worlds;
+
+public class World {
+
+}

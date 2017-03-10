@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/user/Desktop/CX3_4/ubiquitous-guide/Java_Android_game/Eclipse/TileGameSourceCode/New-Beginner-Java-Game-Programming-Src/Episode 18/TileGame"/>
+		<item value="/Users/user/Desktop/CX3_4/ubiquitous-guide/Java_Android_game/Eclipse/TileGameCopy"/>
+		<item value="/Users/user/Desktop/CX3_4/ubiquitous-guide/Java_Android_game/Eclipse/TileGameCopy/Java_Tile_Game_Eclipse/TileGame"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+	</section>
+</section>

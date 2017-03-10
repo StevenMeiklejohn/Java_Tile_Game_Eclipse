@@ -1,0 +1,29 @@
+package com.codeclan.gfx;
+
+import java.awt.image.BufferedImage;
+
+public class Assets {
+	
+	private static final int width = 64, height = 64;
+	
+	public static BufferedImage player1, player2, player3, player4, sheetBlobLeft, sheetBlobRight, sheetBlueOrb, sheetSkyBlock,
+	sheetForestBlock, sheetGrassDirtBox, sheetRock, sheetWaterBlock;
+	
+	public static void init(){
+		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/photonShipSpriteSheet.png"));
+		SpriteSheet sheetBlobLeft = new SpriteSheet(ImageLoader.loadImage("/textures/blobLeft.png"));
+		SpriteSheet sheetBlobRight = new SpriteSheet(ImageLoader.loadImage("/textures/blobRight.png"));
+		SpriteSheet sheetBlueOrb = new SpriteSheet(ImageLoader.loadImage("/textures/blueOrb.png"));
+		SpriteSheet sheetSkyBlock = new SpriteSheet(ImageLoader.loadImage("/textures/skyBlock.png"));
+		SpriteSheet sheetForestBlock = new SpriteSheet(ImageLoader.loadImage("/textures/forestBlock.png"));
+		SpriteSheet sheetGrassDirtBlock = new SpriteSheet(ImageLoader.loadImage("/textures/grassDirtBlock.png"));
+		SpriteSheet sheetRock = new SpriteSheet(ImageLoader.loadImage("/textures/rock.png"));
+		SpriteSheet sheetWaterBlock = new SpriteSheet(ImageLoader.loadImage("/textures/waterBlock.png"));
+		
+		player1 = sheet.crop(0, 0, width, height);
+		player2 = sheet.crop(width, 0, width, height);
+		player3 = sheet.crop(width*2, 0, width, height);
+		player4 = sheet.crop(width*3, 0, width, height);
+	}
+
+}
