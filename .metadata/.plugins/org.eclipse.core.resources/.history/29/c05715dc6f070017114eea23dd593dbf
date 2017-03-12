@@ -2,14 +2,13 @@ package com.codeclan.tilegame.worlds;
 
 import java.awt.Graphics;
 
-import com.codeclan.Handler;
 import com.codeclan.gfx.GameCamera;
 import com.codeclan.tilegame.Game;
 import com.codeclan.tilegame.tiles.Tile;
 import com.codeclan.utils.Utils;
 
 public class World {
-	private Handler handler;
+	private Game game;
 	private int width;
 	private int height;
 	private int spawnX;
@@ -17,8 +16,8 @@ public class World {
 	private int[][] tiles;
 //	private GameCamera gameCamera;
 	
-	public World(Handler handler, String path){
-		this.handler = handler;
+	public World(Game game, String path){
+		this.game = game;
 		loadWorld(path);
 	}
 	
@@ -30,16 +29,16 @@ public class World {
 //		make the render more efficient by limiting the computer to only render tiles within the current camera view.
 //		Ensure xStart is greater than 0 by using Math.max. So if the game.getGameCamera.getOffset number is greater than 0, it will be selected.
 //		To demonstrate in action add +1 to the end of TILE_WIDTH
-		int xStart = (int) Math.max(0,handler.getGameCamera().getxOffset() / Tile.TILE_WIDTH);
-		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILE_WIDTH + 1);
-		int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILE_HEIGHT);
-		int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.TILE_HEIGHT + 1);
+		int xStart = (int) Math.max(0, game.getGameCamera().getxOffset() / Tile.TILE_WIDTH);
+		int xEnd = (int) Math.min(width, (game.getGameCamera().getxOffset() + game.getWidth()) / Tile.TILE_WIDTH + 1);
+		int yStart = (int) Math.max(0, game.getGameCamera().getyOffset() / Tile.TILE_HEIGHT);
+		int yEnd = (int) Math.min(height, (game.getGameCamera().getyOffset() + game.getHeight()) / Tile.TILE_HEIGHT + 1);
 		
 		for(int y = yStart; y < yEnd; y++){
 			for(int x = xStart;  x < xEnd; x++){
 				getTile(x, y).render(g, 
-						(int) (x * Tile.TILE_WIDTH - handler.getGameCamera().getxOffset()), 
-						(int) (y * Tile.TILE_HEIGHT - handler.getGameCamera().getyOffset()));
+						(int) (x * Tile.TILE_WIDTH - game.getGameCamera().getxOffset()), 
+						(int) (y * Tile.TILE_HEIGHT - game.getGameCamera().getyOffset()));
 			}
 		}
 		

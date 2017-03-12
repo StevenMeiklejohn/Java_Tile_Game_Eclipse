@@ -2,20 +2,19 @@ package com.codeclan.entities;
 
 import java.awt.Graphics;
 
-import com.codeclan.Handler;
 import com.codeclan.tilegame.Game;
 
 public abstract class Entity {
-	protected Handler handler;
+	protected Game game;
 	protected float x, y;
 	protected int width, height;
 	
-	public Entity(Handler handler, float x, float y, int width, int height){
+	public Entity(Game game, float x, float y, int width, int height){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.handler = handler;
+		this.game = game;
 	}
 	
 	

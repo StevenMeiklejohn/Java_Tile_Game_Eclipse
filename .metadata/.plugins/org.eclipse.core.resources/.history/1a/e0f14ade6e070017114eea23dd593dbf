@@ -2,13 +2,12 @@ package com.codeclan.state;
 
 import java.awt.Graphics;
 
-import com.codeclan.Handler;
 import com.codeclan.tilegame.Game;
 
 public class MenuState extends State {
 	
-	public MenuState(Handler handler){
-		super(handler);
+	public MenuState(Game game){
+		super(game);
 	}
 
 	@Override

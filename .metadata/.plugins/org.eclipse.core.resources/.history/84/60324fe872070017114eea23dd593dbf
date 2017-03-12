@@ -2,7 +2,6 @@ package com.codeclan.state;
 
 import java.awt.Graphics;
 
-import com.codeclan.Handler;
 import com.codeclan.tilegame.Game;
 
 //Creating a simple game state manager.
@@ -23,10 +22,10 @@ public abstract class State {
 	
 //	CLASS
 	
-	protected Handler handler;
+	protected Game game;
 	
-	public State(Handler handler){
-		this.handler = handler;
+	public State(Game game){
+		game = this.game;
 	}
 	
 	public abstract void update();

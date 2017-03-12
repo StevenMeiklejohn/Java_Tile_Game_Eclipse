@@ -15,15 +15,13 @@ public class GameState extends State{
 	private Player player;
 	private World world;
 	private GameCamera gameCamera;
-	private Handler handler;
 
 	
 	public GameState(Handler handler){
 		super(handler);
-		world = new World(handler, "res2/worlds/world1.txt");
-		handler.setWorld(world);
-		player = new Player(handler, 100, 100);
-		gameCamera = handler.getGameCamera();
+		player = new Player(game, 100, 100);
+		world = new World(game, "res2/worlds/world1.txt");
+		gameCamera = game.getGameCamera();
 		
 	}
 

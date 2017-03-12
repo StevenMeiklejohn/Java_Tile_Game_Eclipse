@@ -2,12 +2,13 @@ package com.codeclan.state;
 
 import java.awt.Graphics;
 
+import com.codeclan.Handler;
 import com.codeclan.tilegame.Game;
 
 public class SettingsState extends State {
 	
-	public SettingsState(Game game){
-		super(game);
+	public SettingsState(Handler handler){
+		super(handler);
 		
 	}
 

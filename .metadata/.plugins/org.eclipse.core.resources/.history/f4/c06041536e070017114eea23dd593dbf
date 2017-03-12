@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
-import com.codeclan.Handler;
 import com.codeclan.display.Display;
 import com.codeclan.gfx.Assets;
 import com.codeclan.gfx.GameCamera;
@@ -59,9 +58,6 @@ public class Game implements Runnable {
 //	game camera
 	private GameCamera gameCamera;
 	
-//	handler
-	private Handler handler;
-	
 	
 //	#####################################	
 //	#####################################
@@ -94,14 +90,12 @@ public class Game implements Runnable {
 //		testImage = ImageLoader.loadImage("/textures/photonShipSpriteSheet.png");
 //		sheet = new SpriteSheet(testImage);
 		gameCamera = new GameCamera(this, 100, 200);
-//		new up Handler object
-		handler = new Handler(this);
 		
 		
 //		because GameState extends State, we can declare gameStates as a State then initialize it as a GameState(below)
-		gameStates = new GameState(handler);
-		menuState = new MenuState(handler);
-		settingsState = new SettingsState(handler);
+		gameStates = new GameState(this);
+		menuState = new MenuState(this);
+		settingsState = new SettingsState(this);
 		State.setState(gameStates);
 
 		

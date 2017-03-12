@@ -99,9 +99,9 @@ public class Game implements Runnable {
 		
 		
 //		because GameState extends State, we can declare gameStates as a State then initialize it as a GameState(below)
-		gameStates = new GameState(handler);
-		menuState = new MenuState(handler);
-		settingsState = new SettingsState(handler);
+		gameStates = new GameState(this);
+		menuState = new MenuState(this);
+		settingsState = new SettingsState(this);
 		State.setState(gameStates);
 
 		
