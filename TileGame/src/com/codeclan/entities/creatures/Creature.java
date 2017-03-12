@@ -1,6 +1,7 @@
 package com.codeclan.entities.creatures;
 
 import com.codeclan.entities.Entity;
+import com.codeclan.tilegame.Game;
 
 public abstract class Creature extends Entity {
 	
@@ -14,12 +15,13 @@ public abstract class Creature extends Entity {
 	protected float xMove;
 	protected float yMove;
 
-	public Creature(Float x, Float y, int width, int height) {
-		super(x, y, width, height);
+	public Creature(Game game, Float x, Float y, int width, int height) {
+		super(game, x, y, width, height);
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
+		
 	}
 	
 	public void move(){

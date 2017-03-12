@@ -7,13 +7,11 @@ import com.codeclan.tilegame.Game;
 
 public class Player extends Creature {
 	
-	private Game game;
+	
 
-	public Player(float x, float y, Game game) {
+	public Player(Game game, float x, float y) {
 //		changing these defaults for numbers allows us to re-size the player object.
-		super(x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
-		this.game = game;
-
+		super(game, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 	}
 
 //	Updates all variables
@@ -21,6 +19,7 @@ public class Player extends Creature {
 	public void update() {
 		getInput();
 		move();
+		game.getGameCamera().centerOnEntity(this);
 	}
 	
 	private void getInput(){
@@ -39,7 +38,7 @@ public class Player extends Creature {
 	@Override
 	public void render(Graphics g) {
 //		use casting to convert int variable to float (as defined by entity)
-		g.drawImage(Assets.player1, (int) x, (int) y, width, height, null);
+		g.drawImage(Assets.player1, (int) (x - game.getGameCamera().getxOffset()), (int) (y - game.getGameCamera().getyOffset()), width, height, null);
 		
 	}
 	

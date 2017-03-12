@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 
 import com.codeclan.display.Display;
 import com.codeclan.gfx.Assets;
+import com.codeclan.gfx.GameCamera;
 import com.codeclan.input.KeyManager;
 import com.codeclan.state.GameState;
 import com.codeclan.state.MenuState;
@@ -30,8 +31,8 @@ public class Game implements Runnable {
 	
 	private Display display;
 	public String title;
-	public int width;
-	public int height;
+	private int width;
+	private int height;
 	
 	private Thread thread;
 	
@@ -51,11 +52,11 @@ public class Game implements Runnable {
 	private State menuState;
 	private State settingsState;
 	
-	
-	
-	
 //	inputs
 	private KeyManager keyManager;
+	
+//	game camera
+	private GameCamera gameCamera;
 	
 	
 //	#####################################	
@@ -88,6 +89,7 @@ public class Game implements Runnable {
 		Assets.init();
 //		testImage = ImageLoader.loadImage("/textures/photonShipSpriteSheet.png");
 //		sheet = new SpriteSheet(testImage);
+		gameCamera = new GameCamera(this, 100, 200);
 		
 		
 //		because GameState extends State, we can declare gameStates as a State then initialize it as a GameState(below)
@@ -95,6 +97,7 @@ public class Game implements Runnable {
 		menuState = new MenuState(this);
 		settingsState = new SettingsState(this);
 		State.setState(gameStates);
+
 		
 	}
 	
@@ -245,6 +248,34 @@ public class Game implements Runnable {
 	public KeyManager getKeyManager(){
 		return keyManager;
 	}
+	
+//	#####################################	
+//	#####################################
+//	GET Game Camera
+//	#####################################
+//	Allows player access to gameCamera
+//	#####################################
+	
+	public GameCamera getGameCamera(){
+		return gameCamera;
+	}
+	
+//	#####################################	
+//	#####################################
+//	GET width and height
+//	#####################################
+//	Allows player access to width and height of game (now private)
+//	#####################################	
+	
+	public int getWidth(){
+		return width;
+	}
+	
+	public int getHeight(){
+		return height;
+	}
+	
+	
 	
 //	#####################################	
 //	#####################################
