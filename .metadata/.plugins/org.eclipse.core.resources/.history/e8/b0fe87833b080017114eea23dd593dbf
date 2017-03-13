@@ -56,13 +56,11 @@ public class Game implements Runnable {
 //	inputs
 	private KeyManager keyManager;
 	
-//	handler
-	private Handler handler;
-	
 //	game camera
 	private GameCamera gameCamera;
 	
-
+//	handler
+	private Handler handler;
 	
 	
 //	#####################################	
@@ -95,10 +93,9 @@ public class Game implements Runnable {
 		Assets.init();
 //		testImage = ImageLoader.loadImage("/textures/photonShipSpriteSheet.png");
 //		sheet = new SpriteSheet(testImage);
+		gameCamera = new GameCamera(this, 100, 200);
 //		new up Handler object
 		handler = new Handler(this);
-		gameCamera = new GameCamera(handler, 100, 200);
-
 		
 		
 //		because GameState extends State, we can declare gameStates as a State then initialize it as a GameState(below)
