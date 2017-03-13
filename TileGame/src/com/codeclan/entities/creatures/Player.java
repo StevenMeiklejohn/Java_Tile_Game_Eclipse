@@ -1,5 +1,6 @@
 package com.codeclan.entities.creatures;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import com.codeclan.Handler;
@@ -13,6 +14,13 @@ public class Player extends Creature {
 	public Player(Handler handler, float x, float y) {
 //		changing these defaults for numbers allows us to re-size the player object.
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+// 		setup bounding box.	
+//		bounding box co-ords relative to entity 0, 0.
+		bounds.x = 5;
+		bounds.y = 25;
+//		size of bounding box inside player tile.
+		bounds.width = 50;
+		bounds.height = 15;
 	}
 
 //	Updates all variables
@@ -42,6 +50,10 @@ public class Player extends Creature {
 		g.drawImage(Assets.player1, 
 				(int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+		g.setColor(Color.red);
+		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), 
+				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+				bounds.width, bounds.height);
 		
 	}
 	

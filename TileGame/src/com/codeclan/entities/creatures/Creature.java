@@ -3,6 +3,7 @@ package com.codeclan.entities.creatures;
 import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
 import com.codeclan.tilegame.Game;
+import com.codeclan.tilegame.tiles.Tile;
 
 public abstract class Creature extends Entity {
 	
@@ -12,7 +13,7 @@ public abstract class Creature extends Entity {
 							DEFAULT_CREATURE_HEIGHT = 64;
 	
 	protected int health;
-	protected float speed;
+	protected float speed; 
 	protected float xMove;
 	protected float yMove;
 
@@ -26,13 +27,89 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void move(){
-		x += xMove;
-		y += yMove;
+		moveX();
+		moveY();
+	}
+	
+//	######################################
+//	######################################
+//	collision detection
+//	######################################
+//	######################################
+	
+	public void moveX(){
+//		moving right
+		if(xMove > 0){
+//			get the position of tile we are trying to move into.
+			int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILE_WIDTH;
+//			collision.
+//			if no solid tile at x position and upper right of bounding box.
+			if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILE_HEIGHT) && 
+//			if no solid tile at x position and lower right of bounding box.					
+					!collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILE_HEIGHT)){
+				x += xMove;
+			}
+			
+//		moving left			
+		}else if(xMove < 0){
+//			get the position of tile we are trying to move into.
+			int tx = (int) (x - xMove - bounds.x) / Tile.TILE_WIDTH;
+//			collision.
+//			if no solid tile at x position and upper left of bounding box.
+			if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILE_HEIGHT) && 
+//			if no solid tile at x position and upper right of bounding box.					
+					!collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILE_HEIGHT)){
+			
+			x += xMove;
+			}
+		}
+	}
+	
+	
+	
+	public void moveY(){
+//		move up
+		if(yMove < 0){
+//			get the position of tile we are trying to move into.
+			int ty = (int) (y + yMove + bounds.y) / Tile.TILE_HEIGHT;
+//			collision.
+//			if no solid tile at x position and right hand side top
+			if(!collisionWithTile((int) (x + bounds.x) / Tile.TILE_WIDTH, ty) && 
+					!collisionWithTile((int) (x + bounds.x + bounds.height) / Tile.TILE_HEIGHT, ty)){
+				y += yMove;	
+			}
+			
+//		move down
+		}else if(yMove > 0){
+//			get the position of tile we are trying to move into.
+			int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILE_WIDTH;
+//			collision.
+//			if no solid tile at x position and left hand side top corner
+			if(!collisionWithTile((int) (x + bounds.x) / Tile.TILE_WIDTH, ty) && 
+					!collisionWithTile((int) (x + bounds.x + bounds.height) / Tile.TILE_HEIGHT, ty)){
+				y += yMove;
+			}
+			
+		}
+		}
+			
+	
+	
+	
+	
+	
+	
+	
+	protected Boolean collisionWithTile(int x, int y){
+		return handler.getWorld().getTile(x, y).isSolid();
+		
 	}
 	
 	
 	
 //	GETTERS/SETTERS
+//	###################
+//	###################
 
 	public float getxMove() {
 		return xMove;
