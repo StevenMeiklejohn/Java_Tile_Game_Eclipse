@@ -72,22 +72,6 @@ public class Player extends Creature {
 //	i.e. direction of travel or firing.
 	public BufferedImage getCurrentAnimationFrame(){
 		return anim.getCurrentFrame();
-		
-//		if(cMove < 0){
-//			return animLeft.getCurrentAnimationFrame();
-//		}else if{
-//			(xMove > 0){
-//				return animRight.getCurrentAnimationFrame();
-//			}else if{
-//				(yMove < 0){
-//					return animUp.getCurrentAnimationFrame();
-//				}else if{
-//					yMove > 0){
-//						animDown.getCurrentAnimationFrame();
-//					}
-//				}
-//			}
-//		}
 	}
 	
 

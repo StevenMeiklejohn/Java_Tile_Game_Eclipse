@@ -36,11 +36,6 @@ public class Assets {
 		waterBlock = sheetWaterBlock.crop(0, 0, 32, 32);
 		cloudySky = sheetCloudySkyBlock.crop(0, 0, 470, 338);
 		player_ani = new BufferedImage[4];
-		
-		player_ani[0] = player1;
-		player_ani[1] = player2;
-		player_ani[2] = player3;
-		player_ani[3] = player4;
 }
 
 }

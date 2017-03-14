@@ -2,7 +2,6 @@ package com.codeclan.entities.creatures;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 
 import com.codeclan.Handler;
 import com.codeclan.gfx.Animation;
@@ -25,7 +24,7 @@ public class Player extends Creature {
 //		size of bounding box inside player tile.
 		bounds.width = 50;
 		bounds.height = 15;
-		anim = new Animation(300, Assets.player_ani);
+		anim = new Animation(500, Assets.player_ani);
 	}
 
 //	Updates all variables
@@ -51,46 +50,19 @@ public class Player extends Creature {
 		if(handler.getKeyManager().right)
 			xMove = speed;
 	}
-	
-
 
 	@Override
 	public void render(Graphics g) {
 //		use casting to convert int variable to float (as defined by entity)
-		g.drawImage(getCurrentAnimationFrame(), 
+		g.drawImage(Assets.player1, 
 				(int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 		g.setColor(Color.red);
 		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), 
 				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
 				bounds.width, bounds.height);
-	}
-	
-	
-//	this method would be modified (perhaps with if statements)
-//	if our player used different animations for different input
-//	i.e. direction of travel or firing.
-	public BufferedImage getCurrentAnimationFrame(){
-		return anim.getCurrentFrame();
 		
-//		if(cMove < 0){
-//			return animLeft.getCurrentAnimationFrame();
-//		}else if{
-//			(xMove > 0){
-//				return animRight.getCurrentAnimationFrame();
-//			}else if{
-//				(yMove < 0){
-//					return animUp.getCurrentAnimationFrame();
-//				}else if{
-//					yMove > 0){
-//						animDown.getCurrentAnimationFrame();
-//					}
-//				}
-//			}
-//		}
 	}
-	
-
 	
 	
 

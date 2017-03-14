@@ -8,7 +8,6 @@ public class Assets {
 	
 	public static BufferedImage player1, player2, player3, player4, blobLeft, blobRight, blueOrb, skyBlock,
 	forestBlock, grassDirtBox, rock, waterBlock, cloudySky;
-	public static BufferedImage[] player_ani;
 	
 	public static void init(){
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/photonShipSpriteSheet.png"));
@@ -35,12 +34,6 @@ public class Assets {
 		rock = sheetRock.crop(0, 0, 32, 32);
 		waterBlock = sheetWaterBlock.crop(0, 0, 32, 32);
 		cloudySky = sheetCloudySkyBlock.crop(0, 0, 470, 338);
-		player_ani = new BufferedImage[4];
-		
-		player_ani[0] = player1;
-		player_ani[1] = player2;
-		player_ani[2] = player3;
-		player_ani[3] = player4;
 }
 
 }

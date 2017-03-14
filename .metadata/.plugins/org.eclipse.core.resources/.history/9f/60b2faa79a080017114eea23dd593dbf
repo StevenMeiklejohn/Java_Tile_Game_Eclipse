@@ -25,7 +25,7 @@ public class Player extends Creature {
 //		size of bounding box inside player tile.
 		bounds.width = 50;
 		bounds.height = 15;
-		anim = new Animation(300, Assets.player_ani);
+		anim = new Animation(500, Assets.player_ani);
 	}
 
 //	Updates all variables
@@ -72,22 +72,6 @@ public class Player extends Creature {
 //	i.e. direction of travel or firing.
 	public BufferedImage getCurrentAnimationFrame(){
 		return anim.getCurrentFrame();
-		
-//		if(cMove < 0){
-//			return animLeft.getCurrentAnimationFrame();
-//		}else if{
-//			(xMove > 0){
-//				return animRight.getCurrentAnimationFrame();
-//			}else if{
-//				(yMove < 0){
-//					return animUp.getCurrentAnimationFrame();
-//				}else if{
-//					yMove > 0){
-//						animDown.getCurrentAnimationFrame();
-//					}
-//				}
-//			}
-//		}
 	}
 	
 
