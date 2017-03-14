@@ -1,0 +1,14 @@
+package com.codeclan.entities.statics;
+
+import com.codeclan.Handler;
+import com.codeclan.entities.Entity;
+
+// objects which don't change like trees and rocks.
+
+public abstract class StaticEntity extends Entity {
+
+	public StaticEntity() {
+
+	}
+
+}

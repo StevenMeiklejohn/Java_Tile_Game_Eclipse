@@ -34,7 +34,6 @@ public class GameState extends State{
 	public void update() {
 		world.update();
 		player.update();
-		heart.update();
 	}
 
 	@Override
@@ -42,7 +41,6 @@ public class GameState extends State{
 //		g.drawImage(Assets.player1, 0, 0, null);
 		world.render(g);
 		player.render(g);
-		heart.render(g);
 
 	}
 }
