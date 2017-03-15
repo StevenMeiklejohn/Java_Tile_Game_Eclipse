@@ -15,7 +15,7 @@ public class Assets {
 	explosion4, explosion5, alien1, alien2, alien3, alien4, alien5, alien6, alien7, battleship,
 	coin, heart, game_won, planet1, planet2, planet3, ship1, ship2, ship3, ship4, ship5,
 	shotBlue, shotGreen, shotRed, space1, space2, rock1, rock2, rock3, rock4;
-	public static BufferedImage[] player_ani, explosion_ani;
+	public static BufferedImage[] player_ani, explosion_ani, rock1_ani;
 	
 
 
@@ -38,11 +38,11 @@ public class Assets {
 ////		battleship
 //		SpriteSheet sheetBattleship = new SpriteSheet(ImageLoader.loadImage("/textures/Battleship.png"));
 ////		explosion
-//		SpriteSheet sheetExplosion1 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_01.png"));
-//		SpriteSheet sheetExplosion2 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_02.png"));
-//		SpriteSheet sheetExplosion3 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_03.png"));
-//		SpriteSheet sheetExplosion4 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_04.png"));
-//		SpriteSheet sheetExplosion5 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_05.png"));
+		SpriteSheet sheetExplosion1 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_01.png"));
+		SpriteSheet sheetExplosion2 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_02.png"));
+		SpriteSheet sheetExplosion3 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_03.png"));
+		SpriteSheet sheetExplosion4 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_04.png"));
+		SpriteSheet sheetExplosion5 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_05.png"));
 ////		game won
 //		SpriteSheet sheetGameWon = new SpriteSheet(ImageLoader.loadImage("/textures/game_won_illustration.png"));
 ////		planets
@@ -62,7 +62,7 @@ public class Assets {
 //		backgrounds
 		SpriteSheet sheetSpace1 = new SpriteSheet(ImageLoader.loadImage("/textures/Space1.png"));
 		SpriteSheet sheetSpace2 = new SpriteSheet(ImageLoader.loadImage("/textures/Space2.png"));
-		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/rocks.jpg"));
+		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/myRockSheet2.png"));
 
 		player_ani = new BufferedImage[4];
 
@@ -77,19 +77,32 @@ public class Assets {
 		player_ani[2] = player3;
 		player_ani[3] = player4;
 		
-//		explosion_ani = new BufferedImage[5];
-//		
-//		explosion1 = sheetExplosion1.crop(0, 0,64, 64);
-//		explosion2 = sheetExplosion2.crop(0, 0, 64, 64);
-//		explosion3 = sheetExplosion3.crop(0, 0, 64, 64);
-//		explosion4 = sheetExplosion4.crop(0, 0, 64, 64);
-//		explosion5 = sheetExplosion5.crop(0, 0, 64, 64);
-//		
-//		explosion_ani[0] = explosion1;
-//		explosion_ani[1] = explosion2;
-//		explosion_ani[2] = explosion3;
-//		explosion_ani[3] = explosion4;
-//		explosion_ani[4] = explosion5;
+		
+		rock1_ani = new BufferedImage[4];
+		
+		rock1 = sheetRocks.crop(0, 0, width, height);
+		rock2 = sheetRocks.crop(64, 0, width, height);
+		rock3 = sheetRocks.crop(128, 0, width, height);
+		rock4 = sheetRocks.crop(192, 0, width, height);
+		
+		rock1_ani[0] = rock1;
+		rock1_ani[1] = rock2;
+		rock1_ani[2] = rock3;
+		rock1_ani[3] = rock4;
+		
+		explosion_ani = new BufferedImage[5];
+		
+		explosion1 = sheetExplosion1.crop(0, 0,32, 32);
+		explosion2 = sheetExplosion2.crop(0, 0,32, 32);
+		explosion3 = sheetExplosion3.crop(0, 0,32, 32);
+		explosion4 = sheetExplosion4.crop(0, 0,32, 32);
+		explosion5 = sheetExplosion5.crop(0, 0,32, 32);
+		
+		explosion_ani[0] = explosion1;
+		explosion_ani[1] = explosion2;
+		explosion_ani[2] = explosion3;
+		explosion_ani[3] = explosion4;
+		explosion_ani[4] = explosion5;
 		
 //		heart = SheetHeart.crop(0,  0,  32,  32);
 //		coin = sheetCoin.crop(0, 0, 32, 32);
@@ -127,7 +140,8 @@ public class Assets {
 		space1 = sheetSpace1.crop(0, 0, 64, 64);
 		space2 = sheetSpace2.crop(0, 0, 64, 64);
 		
-		rock1 = sheetRocks.crop(0, 0, 100, 100);
+		
+
 		
 
 

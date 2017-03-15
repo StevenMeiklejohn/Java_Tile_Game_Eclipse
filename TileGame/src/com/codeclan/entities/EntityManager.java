@@ -4,20 +4,27 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import com.codeclan.Handler;
-
+import com.codeclan.entities.creatures.AnimatedRock1;
+import com.codeclan.entities.creatures.Explosion;
 import com.codeclan.entities.creatures.Player;
 
 public class EntityManager {
 	
 	private Handler handler;
 	private Player player;
+	private AnimatedRock1 animatedRock1;
+	private Explosion explosion;
 	private ArrayList<Entity> entities;
 	
-	public EntityManager(Handler handler, Player player){
+	public EntityManager(Handler handler, Player player, AnimatedRock1 animatedRock1, Explosion explosion){
 		this.handler = handler;
 		this.player = player;
+		this.animatedRock1 = animatedRock1;
+		this.explosion = explosion;
 		entities = new ArrayList<Entity>();
 		entities.add(player);
+		entities.add(animatedRock1);
+		entities.add(explosion);
 	}
 	
 	public void update(){
@@ -55,6 +62,14 @@ public class EntityManager {
 
 	public Player getPlayer() {
 		return player;
+	}
+	
+	public AnimatedRock1 getAnimatedRock1(){
+		return animatedRock1;
+	}
+	
+	public Explosion getExplosion(){
+		return explosion;
 	}
 	
 
