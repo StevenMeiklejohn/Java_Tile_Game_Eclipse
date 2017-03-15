@@ -41,7 +41,8 @@ public class EntityManager {
 			Entity e = entities.get(i);
 			e.update();
 		}
-		entities.sort(renderSorter);
+//		Player is something of a special case and is not grouped with the rest of the entities.
+//		player.update();
 	}
 	
 	

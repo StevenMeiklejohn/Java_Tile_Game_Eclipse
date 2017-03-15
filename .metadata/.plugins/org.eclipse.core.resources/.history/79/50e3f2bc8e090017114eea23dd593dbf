@@ -14,18 +14,7 @@ public class EntityManager {
 	private Player player;
 	private AnimatedRock1 animatedRock1;
 	private ArrayList<Entity> entities;
-	
-//	import comparator (and associated methods) to allow us to sort the render oredr of entity array list.
-	private Comparator<Entity> renderSorter = new Comparator<Entity>(){
-
-		@Override
-		public int compare(Entity a, Entity b) {
-			if(a.getY() < b.getY())
-				return -1;
-			return 1;
-		}
-		
-	};
+	private Comparator<Entity> renderSorter = new Comparator<Entity>();
 	
 	public EntityManager(Handler handler, Player player, AnimatedRock1 animatedRock1){
 		this.handler = handler;
@@ -41,7 +30,8 @@ public class EntityManager {
 			Entity e = entities.get(i);
 			e.update();
 		}
-		entities.sort(renderSorter);
+//		Player is something of a special case and is not grouped with the rest of the entities.
+//		player.update();
 	}
 	
 	
