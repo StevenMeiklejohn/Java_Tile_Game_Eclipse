@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.codeclan.Handler;
 import com.codeclan.entities.creatures.AnimatedRock1;
+import com.codeclan.entities.creatures.Explosion;
 import com.codeclan.entities.creatures.Player;
 
 public class EntityManager {

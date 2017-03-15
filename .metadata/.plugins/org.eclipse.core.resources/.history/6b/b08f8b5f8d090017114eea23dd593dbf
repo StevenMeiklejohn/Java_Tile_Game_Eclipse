@@ -41,7 +41,7 @@ public class World {
 //		static entities(non moving elements, like trees/rock) are instantiated here.
 		entityManager.getAnimatedRock1().setX(300);
 		entityManager.getAnimatedRock1().setY(300);
-		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 250, 250));
+		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 100, 100));
 
 	}
 	
