@@ -10,6 +10,11 @@ public class Heart extends StaticEntity {
 	
 	public Heart(Handler handler, float x, float y){
 		super(handler, x, y, Tile.TILE_WIDTH, Tile.TILE_HEIGHT);
+		bounds.x = 10;
+		bounds.y = 10;
+//		Used if asset bounding box is <= height of two tiles.
+//		bounds.y = (int) (height / 1,5f);
+		
 	}
 
 	@Override

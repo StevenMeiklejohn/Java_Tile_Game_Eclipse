@@ -1,0 +1,12 @@
+package com.codeclan.tilegame.tiles;
+
+import com.codeclan.gfx.Assets;
+
+public class Rock1 extends Tile {
+	
+	public Rock1(int id) {
+		super(Assets.rock1, id);
+
+	}
+
+}

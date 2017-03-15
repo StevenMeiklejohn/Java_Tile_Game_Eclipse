@@ -1,0 +1,17 @@
+package com.codeclan.tilegame.tiles;
+
+import com.codeclan.gfx.Assets;
+
+public class Alien1Tile extends Tile {
+	
+	public Alien1Tile(int id) {
+		super(Assets.alien1, id);
+
+	}
+	
+	@Override
+	public boolean isSolid(){
+		return true;
+	}
+
+}

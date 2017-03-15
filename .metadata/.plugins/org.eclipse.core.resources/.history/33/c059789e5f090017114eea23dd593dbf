@@ -1,0 +1,17 @@
+package com.codeclan.tilegame.tiles;
+
+import com.codeclan.gfx.Assets;
+
+public class Planet1Tile extends Tile {
+	
+	public Planet1Tile(int id) {
+		super(Assets.planet1, id);
+
+	}
+	
+	@Override
+	public boolean isSolid(){
+		return true;
+	}
+
+}

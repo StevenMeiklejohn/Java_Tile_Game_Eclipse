@@ -9,7 +9,7 @@ public class Launcher {
 //		temporary code to test display constructor is working.
 //		new Display("TileGame", 300, 300);
 		
-		Game game = new Game("Tile Game", 736, 640);
+		Game game = new Game("Tile Game", 640, 640);
 		game.start();
 		
 	}

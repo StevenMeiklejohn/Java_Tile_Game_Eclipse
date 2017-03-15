@@ -1,0 +1,12 @@
+package com.codeclan.tilegame.tiles;
+
+import com.codeclan.gfx.Assets;
+
+public class Planet2Tile extends Tile {
+	
+	public Planet2Tile(int id) {
+		super(Assets.planet2, id);
+
+	}
+
+}

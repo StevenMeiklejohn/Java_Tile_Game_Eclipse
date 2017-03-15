@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import com.codeclan.Handler;
+
 import com.codeclan.entities.creatures.Player;
 
 public class EntityManager {
@@ -54,6 +55,8 @@ public class EntityManager {
 	public Player getPlayer() {
 		return player;
 	}
+	
+
 
 	public void setPlayer(Player player) {
 		this.player = player;

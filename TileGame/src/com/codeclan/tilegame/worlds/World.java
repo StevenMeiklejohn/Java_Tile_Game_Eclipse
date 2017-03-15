@@ -6,8 +6,9 @@ import com.codeclan.Handler;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.creatures.Player;
 import com.codeclan.entities.statics.Heart;
-import com.codeclan.gfx.GameCamera;
-import com.codeclan.tilegame.Game;
+import com.codeclan.entities.statics.Rock1;
+//import com.codeclan.gfx.GameCamera;
+//import com.codeclan.tilegame.Game;
 import com.codeclan.tilegame.tiles.Tile;
 import com.codeclan.utils.Utils;
 
@@ -26,14 +27,19 @@ public class World {
 	public World(Handler handler, String path){
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
-		entityManager.addEntity(new Heart(handler, 250, 100));
-		entityManager.addEntity(new Heart(handler, 250, 250));
-		entityManager.addEntity(new Heart(handler, 250, 300));
+//		entity manager should be above loadWorld
 		loadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setX(spawnY);
+//		static entities(non moving elements, like trees/rock) are instantiated here.
+		entityManager.addEntity(new Rock1(handler, 250, 300));
+
 	}
 	
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
 	public void update(){
 		entityManager.update();
 	}
@@ -56,17 +62,16 @@ public class World {
 		}
 //		Render entities
 		entityManager.render(g);
-		
 	}
 	
 	public Tile getTile(int x, int y){
 //		prevent crash if player is outside the map boundary by applying a forest tile.
 		if(x < 0 || y < 0 || x >= width || y >= height)
-			return Tile.forestTile;
+			return Tile.space1;
 		
 		Tile t = Tile.tiles[tiles[x][y]];
 		if(t == null)
-			return Tile.dirtTile;
+			return Tile.space2;
 		else
 		return t;
 	}

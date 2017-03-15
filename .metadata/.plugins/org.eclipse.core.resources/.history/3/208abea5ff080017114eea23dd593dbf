@@ -1,0 +1,50 @@
+package com.codeclan.tilegame.tiles;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+public class Tile {
+	
+//	Static stuff here
+	
+	public static Tile[] tiles = new Tile[256];
+	public static Tile space1 = new Space1Tile(0);
+	public static Tile space2 = new Space2Tile(1);
+	public static Tile alien1 = new Alien1Tile(2);
+//	public static Tile alien2 = new Alien2Tile(3);
+//	public static Tile planet1 = new Planet1Tile(2);
+//	public static Tile planet2 = new Planet2Tile(4);
+	
+	
+	
+	
+//	CLASS
+	
+	public static final int TILE_WIDTH = 32, TILE_HEIGHT = 32;
+	protected BufferedImage texture;
+//	tile id should never change.
+	protected final int id;
+
+		public Tile(BufferedImage texture, int id){
+			this.texture = texture;
+			this.id = id;
+//	When constructing the tile we position it in our tiles array at the index position of its unique id.		
+			tiles[id] = this;
+		}
+		
+		public void update(){
+			
+		}
+		
+		public void render(Graphics g, int x, int y){
+			g.drawImage(texture, x, y, TILE_WIDTH, TILE_HEIGHT, null);
+		}
+		
+		public boolean isSolid(){
+			return false;
+		}
+		
+		public int getId(){
+			return this.id;
+		}
+}

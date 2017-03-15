@@ -8,18 +8,20 @@ public class Tile {
 //	Static stuff here
 	
 	public static Tile[] tiles = new Tile[256];
-	public static Tile forestTile = new ForestTile(0);
-	public static Tile dirtTile = new DirtTile(1);
-	public static Tile rockTile = new RockTile(2);
-	public static Tile skyTile = new SkyTile(3);
-	public static Tile cloudySky = new CloudySkyTile(4);
+	public static Tile space1 = new Space1Tile(0);
+	public static Tile space2 = new Space2Tile(1);
+//	public static Tile rock1 = new RockTile1(1);
+//	public static Tile planet1 = new PlanetTile1(1);
+
+	
+
 	
 	
 	
 	
 //	CLASS
 	
-	public static final int TILE_WIDTH = 32, TILE_HEIGHT = 32;
+	public static final int TILE_WIDTH = 64, TILE_HEIGHT = 64;
 	protected BufferedImage texture;
 //	tile id should never change.
 	protected final int id;
