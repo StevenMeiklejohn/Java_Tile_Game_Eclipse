@@ -9,10 +9,5 @@ public class RockTile1 extends Tile {
 			super(Assets.rock1, id);
 
 		}
-		
-		@Override
-		public boolean isSolid(){
-			return true;
-		}
 
 }
