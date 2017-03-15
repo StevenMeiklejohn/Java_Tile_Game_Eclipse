@@ -9,23 +9,23 @@ import com.codeclan.gfx.Animation;
 import com.codeclan.gfx.Assets;
 import com.codeclan.tilegame.Game;
 
-public class AnimatedRock1 extends Creature {
+public class Explosion extends Creature {
 //	Animation
 	private Animation anim;
 	
 	
 
-	public AnimatedRock1(Handler handler, float x, float y) {
+	public Explosion(Handler handler, float x, float y) {
 //		changing these defaults for numbers allows us to re-size the player object.
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 // 		setup bounding box.	
 //		bounding box co-ords relative to entity 0, 0.
-		bounds.x = 2;
-		bounds.y = 5;
+		bounds.x = 0;
+		bounds.y = 0;
 //		size of bounding box inside player tile.
-		bounds.width = 58;
-		bounds.height = 58;
-		anim = new Animation(300, Assets.rock1_ani);
+		bounds.width = 0;
+		bounds.height = 0;
+		anim = new Animation(100, Assets.explosion_ani);
 	}
 
 //	Updates all variables
@@ -36,7 +36,7 @@ public class AnimatedRock1 extends Creature {
 //		Move
 //		getInput();
 		move();
-//		handler.getGameCamera().centerOnEntity(this);
+		handler.getGameCamera().centerOnEntity(this);
 	}
 	
 //	private void getInput(){

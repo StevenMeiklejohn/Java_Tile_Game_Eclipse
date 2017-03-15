@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import com.codeclan.Handler;
 import com.codeclan.gfx.Animation;
 import com.codeclan.gfx.Assets;
-import com.codeclan.tilegame.Game;
+//import com.codeclan.tilegame.Game;
 
 public class Explosion extends Creature {
 //	Animation
@@ -23,8 +23,8 @@ public class Explosion extends Creature {
 		bounds.x = 0;
 		bounds.y = 0;
 //		size of bounding box inside player tile.
-		bounds.width = 10;
-		bounds.height = 10;
+		bounds.width = 0;
+		bounds.height = 0;
 		anim = new Animation(100, Assets.explosion_ani);
 	}
 
@@ -36,7 +36,7 @@ public class Explosion extends Creature {
 //		Move
 //		getInput();
 		move();
-		handler.getGameCamera().centerOnEntity(this);
+//		handler.getGameCamera().centerOnEntity(this);
 	}
 	
 //	private void getInput(){
@@ -60,7 +60,7 @@ public class Explosion extends Creature {
 		g.drawImage(getCurrentAnimationFrame(), 
 				(int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-//		g.setColor(Color.red);
+		g.setColor(Color.red);
 //		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), 
 //				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
 //				bounds.width, bounds.height);

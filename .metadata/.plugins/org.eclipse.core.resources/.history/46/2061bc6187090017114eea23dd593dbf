@@ -36,7 +36,7 @@ public class AnimatedRock1 extends Creature {
 //		Move
 //		getInput();
 		move();
-//		handler.getGameCamera().centerOnEntity(this);
+		handler.getGameCamera().centerOnEntity(this);
 	}
 	
 //	private void getInput(){
