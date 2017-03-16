@@ -11,11 +11,14 @@ public class Assets {
 	
 	private static final int width = 64, height = 64;
 	
-	public static BufferedImage player1, player2, player3, player4, explosion1, explosion2, explosion3, 
-	explosion4, explosion5, alien1, alien2, alien3, alien4, alien5, alien6, alien7, battleship,
+	public static BufferedImage player1, player2, player3, player4, 
+	explosion1, explosion2, explosion3, explosion4, explosion5, 
+	ex_alt_1, ex_alt_2, ex_alt_3, ex_alt_4, ex_alt_5, ex_alt_6, ex_alt_7, 
+	ex2_alt_1, ex2_alt_2, ex2_alt_3, ex2_alt_4, ex2_alt_5, ex2_alt_6, ex2_alt_7, ex2_alt_8,
+	alien1, alien2, alien3, alien4, alien5, alien6, alien7, battleship,
 	coin, heart, game_won, planet1, planet2, planet3, ship1, ship2, ship3, ship4, ship5,
 	shotBlue, shotGreen, shotRed, space1, space2, rock1, rock2, rock3, rock4;
-	public static BufferedImage[] player_ani, explosion_ani, rock1_ani;
+	public static BufferedImage[] player_ani, explosion_ani, rock1_ani, alt_explosion1_ani, alt_explosion2_ani;
 	
 
 
@@ -43,6 +46,8 @@ public class Assets {
 		SpriteSheet sheetExplosion3 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_03.png"));
 		SpriteSheet sheetExplosion4 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_04.png"));
 		SpriteSheet sheetExplosion5 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_05.png"));
+		SpriteSheet sheetExplosionAlt1 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion-1.png"));
+		SpriteSheet sheetExplosionAlt2 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion-6.png"));
 ////		game won
 //		SpriteSheet sheetGameWon = new SpriteSheet(ImageLoader.loadImage("/textures/game_won_illustration.png"));
 ////		planets
@@ -89,6 +94,46 @@ public class Assets {
 		rock1_ani[1] = rock2;
 		rock1_ani[2] = rock3;
 		rock1_ani[3] = rock4;
+		
+		alt_explosion1_ani = new BufferedImage[7];
+		
+		ex_alt_1 = sheetExplosionAlt1.crop(0, 0,32, 32);
+		ex_alt_2 = sheetExplosionAlt1.crop(32, 0,32, 32);
+		ex_alt_3 = sheetExplosionAlt1.crop(64, 0,32, 32);
+		ex_alt_4 = sheetExplosionAlt1.crop(96, 0,32, 32);
+		ex_alt_5 = sheetExplosionAlt1.crop(128, 0,32, 32);
+		ex_alt_6 = sheetExplosionAlt1.crop(160, 0,32, 32);
+		ex_alt_7 = sheetExplosionAlt1.crop(192, 0,32, 32);
+		
+		alt_explosion1_ani[0] = ex_alt_1;
+		alt_explosion1_ani[1] = ex_alt_2;
+		alt_explosion1_ani[2] = ex_alt_3;
+		alt_explosion1_ani[3] = ex_alt_4;
+		alt_explosion1_ani[4] = ex_alt_5;
+		alt_explosion1_ani[5] = ex_alt_6;
+		alt_explosion1_ani[6] = ex_alt_7;
+		
+		
+		alt_explosion2_ani = new BufferedImage[8];
+		
+		ex2_alt_1 = sheetExplosionAlt2.crop(0, 0,48, 48);
+		ex2_alt_2 = sheetExplosionAlt2.crop(48, 0,48, 48);
+		ex2_alt_3 = sheetExplosionAlt2.crop(96, 0,48, 48);
+		ex2_alt_4 = sheetExplosionAlt2.crop(144, 0,48, 48);
+		ex2_alt_5 = sheetExplosionAlt2.crop(192, 0,48, 48);
+		ex2_alt_6 = sheetExplosionAlt2.crop(240, 0,48, 48);
+		ex2_alt_7 = sheetExplosionAlt2.crop(288, 0,48, 48);
+		ex2_alt_8 = sheetExplosionAlt2.crop(336, 0,48, 48);
+		
+		alt_explosion2_ani[0] = ex2_alt_1;
+		alt_explosion2_ani[1] = ex2_alt_2;
+		alt_explosion2_ani[2] = ex2_alt_3;
+		alt_explosion2_ani[3] = ex2_alt_4;
+		alt_explosion2_ani[4] = ex2_alt_5;
+		alt_explosion2_ani[5] = ex2_alt_6;
+		alt_explosion2_ani[6] = ex2_alt_7;
+		alt_explosion2_ani[7] = ex2_alt_8;
+		
 		
 		explosion_ani = new BufferedImage[5];
 		

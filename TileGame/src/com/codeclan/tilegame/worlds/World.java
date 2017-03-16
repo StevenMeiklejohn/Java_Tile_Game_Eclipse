@@ -7,6 +7,8 @@ import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.Player;
 import com.codeclan.entities.statics.StaticAnimatedExplosion1;
+import com.codeclan.entities.statics.StaticAnimatedExplosion2;
+import com.codeclan.entities.statics.StaticAnimatedExplosion3;
 //import com.codeclan.entities.statics.Heart;
 //import com.codeclan.entities.statics.Rock1;
 //import com.codeclan.gfx.GameCamera;
@@ -42,7 +44,8 @@ public class World {
 		entityManager.getAnimatedRock1().setX(300);
 		entityManager.getAnimatedRock1().setY(300);
 		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 250, 250));
-
+		entityManager.addEntity(new StaticAnimatedExplosion2(handler, 350, 350));
+		entityManager.addEntity(new StaticAnimatedExplosion3(handler, 400, 400));
 	}
 	
 	public EntityManager getEntityManager() {

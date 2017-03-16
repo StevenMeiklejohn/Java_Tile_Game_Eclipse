@@ -10,6 +10,7 @@ import com.codeclan.display.Display;
 import com.codeclan.gfx.Assets;
 import com.codeclan.gfx.GameCamera;
 import com.codeclan.input.KeyManager;
+import com.codeclan.input.MouseManager;
 import com.codeclan.state.GameState;
 import com.codeclan.state.MenuState;
 import com.codeclan.state.SettingsState;
@@ -55,6 +56,7 @@ public class Game implements Runnable {
 	
 //	inputs
 	private KeyManager keyManager;
+	private MouseManager mouseManager;
 	
 //	handler
 	private Handler handler;
