@@ -50,9 +50,9 @@ public class Game implements Runnable {
 //	private SpriteSheet sheet;
 	
 //	states
-	public State gameStates;
-	public State menuState;
-	public State settingsState;
+	private State gameStates;
+	private State menuState;
+	private State settingsState;
 	
 //	inputs
 	private KeyManager keyManager;

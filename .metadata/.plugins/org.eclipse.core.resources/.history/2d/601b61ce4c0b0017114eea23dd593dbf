@@ -50,9 +50,9 @@ public class Game implements Runnable {
 //	private SpriteSheet sheet;
 	
 //	states
-	public State gameStates;
-	public State menuState;
-	public State settingsState;
+	private State gameStates;
+	private State menuState;
+	private State settingsState;
 	
 //	inputs
 	private KeyManager keyManager;
@@ -95,12 +95,6 @@ public class Game implements Runnable {
 		display = new Display(title, width, height);
 //		Get the Jframe associated with the display and implement a key listener
 		display.getJFrame().addKeyListener(keyManager);
-//		Get the Jframe associated with the display and implement a mouse listener
-//		 getting the Jfram and the Canvas avoids glitching as it will use whichever one is currently 'focused'.
-		display.getJFrame().addMouseListener(mouseManager);
-		display.getJFrame().addMouseMotionListener(mouseManager);
-		display.getCanvas().addMouseListener(mouseManager);
-		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
 //		testImage = ImageLoader.loadImage("/textures/photonShipSpriteSheet.png");
 //		sheet = new SpriteSheet(testImage);
@@ -114,7 +108,7 @@ public class Game implements Runnable {
 		gameStates = new GameState(handler);
 		menuState = new MenuState(handler);
 		settingsState = new SettingsState(handler);
-		State.setState(menuState);
+		State.setState(gameStates);
 
 		
 	}
@@ -266,13 +260,6 @@ public class Game implements Runnable {
 	public KeyManager getKeyManager(){
 		return keyManager;
 	}
-	
-//	#####################################	
-//	#####################################
-//	GET MOUSE MANAGER
-//	#####################################
-//	Allows player access to keymanager
-//	#####################################
 	
 	
 	

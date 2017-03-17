@@ -14,7 +14,6 @@ public class MenuState extends State {
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		System.out.println(handler.getMouseMnager().getMouseX() + "   " + handler.getMouseMnager().getMouseY());
 		
 	}
 

@@ -2,7 +2,6 @@ package com.codeclan;
 
 import com.codeclan.gfx.GameCamera;
 import com.codeclan.input.KeyManager;
-import com.codeclan.input.MouseManager;
 import com.codeclan.tilegame.Game;
 import com.codeclan.tilegame.worlds.World;
 
@@ -43,10 +42,6 @@ public class Handler {
 	
 	public KeyManager getKeyManager(){
 		return game.getKeyManager();
-	}
-	
-	public MouseManager getMouseMnager(){
-		return game.getMouseManager();
 	}
 	
 	public GameCamera getGameCamera(){
