@@ -4,7 +4,6 @@ import java.awt.Graphics;
 
 import com.codeclan.Handler;
 import com.codeclan.entities.creatures.Player;
-import com.codeclan.entities.statics.Heart;
 import com.codeclan.gfx.Assets;
 import com.codeclan.gfx.GameCamera;
 import com.codeclan.tilegame.Game;

@@ -15,10 +15,17 @@ public class Assets {
 	explosion1, explosion2, explosion3, explosion4, explosion5, 
 	ex_alt_1, ex_alt_2, ex_alt_3, ex_alt_4, ex_alt_5, ex_alt_6, ex_alt_7, 
 	ex2_alt_1, ex2_alt_2, ex2_alt_3, ex2_alt_4, ex2_alt_5, ex2_alt_6, ex2_alt_7, ex2_alt_8,
-	alien1, alien2, alien3, alien4, alien5, alien6, alien7, battleship,
-	coin, heart, game_won, planet1, planet2, planet3, ship1, ship2, ship3, ship4, ship5,
-	shotBlue, shotGreen, shotRed, space1, space2, rock1, rock2, rock3, rock4;
-	public static BufferedImage[] player_ani, explosion_ani, rock1_ani, alt_explosion1_ani, alt_explosion2_ani;
+	space1, space2,
+	rock1, rock2, rock3, rock4,
+	laserA_1, laserA_2, laserA_3, laserA_4, laserA_5, laserA_6, laserA_7, laserA_8, laserA_9, 
+	laserA_10, laserA_11, laserA_12, laserA_13, laserA_14, laserA_15, laserA_16, laserA_17, laserA_18, 
+	laserA_19, laserA_20, laserA_21, laserA_22, laserA_23, laserA_24, laserA_25, laserA_26, laserA_27, 
+	laserA_28, laserA_29, laserA_30,
+	laserB_1, laserB_2, laserB_3, laserB_4, laserB_5, laserB_6, laserB_7, laserB_8, laserB_9,
+	laserB_10, laserB_11, laserB_12;
+
+	public static BufferedImage[] player_ani, explosion_ani, rock1_ani, 
+	alt_explosion1_ani, alt_explosion2_ani, laser1_ani, laser2_ani;
 	
 
 
@@ -31,16 +38,7 @@ public class Assets {
 //		SpriteSheet SheetHeart = new SpriteSheet(ImageLoader.loadImage("/textures/heart.png"));
 //		SpriteSheet sheetCoin = new SpriteSheet(ImageLoader.loadImage("/textures/coin.png"));
 ////		aliens
-//		SpriteSheet sheetAlien1 = new SpriteSheet(ImageLoader.loadImage("/textures/Alien1.png"));
-//		SpriteSheet sheetAlien2 = new SpriteSheet(ImageLoader.loadImage("/textures/Alien2.png"));
-//		SpriteSheet sheetAlien3 = new SpriteSheet(ImageLoader.loadImage("/textures/Alien3.png"));
-//		SpriteSheet sheetAlien4 = new SpriteSheet(ImageLoader.loadImage("/textures/Alien4.png"));
-//		SpriteSheet sheetAlien5 = new SpriteSheet(ImageLoader.loadImage("/textures/Alien5.png"));
-//		SpriteSheet sheetAlien6 = new SpriteSheet(ImageLoader.loadImage("/textures/Alien6.png"));
-//		SpriteSheet sheetAlien7 = new SpriteSheet(ImageLoader.loadImage("/textures/Alien7.png"));
-////		battleship
-//		SpriteSheet sheetBattleship = new SpriteSheet(ImageLoader.loadImage("/textures/Battleship.png"));
-////		explosion
+
 		SpriteSheet sheetExplosion1 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_01.png"));
 		SpriteSheet sheetExplosion2 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_02.png"));
 		SpriteSheet sheetExplosion3 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_03.png"));
@@ -48,18 +46,12 @@ public class Assets {
 		SpriteSheet sheetExplosion5 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_05.png"));
 		SpriteSheet sheetExplosionAlt1 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion-1.png"));
 		SpriteSheet sheetExplosionAlt2 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion-6.png"));
+		SpriteSheet sheetLaser1 = new SpriteSheet(ImageLoader.loadImage("/textures/laserSpriteSheet.png"));
+		SpriteSheet sheetLaser2 = new SpriteSheet(ImageLoader.loadImage("/textures/giantLaserSpriteSheet.png"));
 ////		game won
 //		SpriteSheet sheetGameWon = new SpriteSheet(ImageLoader.loadImage("/textures/game_won_illustration.png"));
-////		planets
-		SpriteSheet sheetPlanet1 = new SpriteSheet(ImageLoader.loadImage("/textures/Planet1.png"));
-//		SpriteSheet sheetPlanet2 = new SpriteSheet(ImageLoader.loadImage("/textures/Planet2.png"));
-//		SpriteSheet sheetPlanet3 = new SpriteSheet(ImageLoader.loadImage("/textures/Planet3.png"));
-////		ships
-//		SpriteSheet sheetShip1 = new SpriteSheet(ImageLoader.loadImage("/textures/Ship1.png"));
-//		SpriteSheet sheetShip2 = new SpriteSheet(ImageLoader.loadImage("/textures/Ship2.png"));
-//		SpriteSheet sheetShip3 = new SpriteSheet(ImageLoader.loadImage("/textures/Ship3.png"));
-//		SpriteSheet sheetShip4 = new SpriteSheet(ImageLoader.loadImage("/textures/Ship4.png"));
-//		SpriteSheet sheetShip5 = new SpriteSheet(ImageLoader.loadImage("/textures/Ship5.png"));
+
+
 ////		bullets
 //		SpriteSheet sheetShotBlue = new SpriteSheet(ImageLoader.loadImage("/textures/ShotBlue.png"));
 //		SpriteSheet sheetShotGreen = new SpriteSheet(ImageLoader.loadImage("/textures/ShotGreen.png"));
@@ -94,6 +86,7 @@ public class Assets {
 		rock1_ani[1] = rock2;
 		rock1_ani[2] = rock3;
 		rock1_ani[3] = rock4;
+		
 		
 		alt_explosion1_ani = new BufferedImage[7];
 		
@@ -153,34 +146,106 @@ public class Assets {
 //		coin = sheetCoin.crop(0, 0, 32, 32);
 		
 		
+		laser1_ani = new BufferedImage[30];
+		
+		laserA_1 = sheetLaser1.crop(0, 0,500, 32);
+		laserA_2 = sheetLaser1.crop(500, 0,500, 32);
+		laserA_3 = sheetLaser1.crop(1000, 0,500, 32);
+		laserA_4 = sheetLaser1.crop(1500, 0,500, 32);
+		laserA_5 = sheetLaser1.crop(2000, 0,500, 32);
+		laserA_6 = sheetLaser1.crop(2500, 0,500, 32);
+		laserA_7 = sheetLaser1.crop(3000, 0,500, 32);
+		laserA_8 = sheetLaser1.crop(3500, 0,500, 32);
+		laserA_9 = sheetLaser1.crop(4000, 0,500, 32);
+		laserA_10 = sheetLaser1.crop(4500, 0,500, 32);
+		laserA_11 = sheetLaser1.crop(5000, 0,500, 32);
+		laserA_12 = sheetLaser1.crop(5500, 0,500, 32);
+		laserA_13 = sheetLaser1.crop(6000, 0,500, 32);
+		laserA_14 = sheetLaser1.crop(6500, 0,500, 32);
+		laserA_15 = sheetLaser1.crop(7000, 0,500, 32);
+		laserA_16 = sheetLaser1.crop(7500, 0,500, 32);
+		laserA_17 = sheetLaser1.crop(8000, 0,500, 32);
+		laserA_18 = sheetLaser1.crop(8500, 0,500, 32);
+		laserA_19 = sheetLaser1.crop(9000, 0,500, 32);
+		laserA_20 = sheetLaser1.crop(9500, 0,500, 32);
+		laserA_21 = sheetLaser1.crop(10000, 0,500, 32);
+		laserA_22 = sheetLaser1.crop(10500, 0,500, 32);
+		laserA_23 = sheetLaser1.crop(11000, 0,500, 32);
+		laserA_24 = sheetLaser1.crop(11500, 0,500, 32);
+		laserA_25 = sheetLaser1.crop(12000, 0,500, 32);
+		laserA_26 = sheetLaser1.crop(12500, 0,500, 32);
+		laserA_27 = sheetLaser1.crop(13000, 0,500, 32);
+		laserA_28 = sheetLaser1.crop(13500, 0,500, 32);
+		laserA_29 = sheetLaser1.crop(14000, 0,500, 32);
+		laserA_30 = sheetLaser1.crop(14500, 0,500, 32);
+		
 
 		
-//		
+		laser1_ani[0] = laserA_1;
+		laser1_ani[1] = laserA_2;
+		laser1_ani[2] = laserA_3;
+		laser1_ani[3] = laserA_4;
+		laser1_ani[4] = laserA_5;
+		laser1_ani[5] = laserA_6;
+		laser1_ani[6] = laserA_7;
+		laser1_ani[7] = laserA_8;
+		laser1_ani[8] = laserA_9;
+		laser1_ani[9] = laserA_10;
+		laser1_ani[10] = laserA_11;
+		laser1_ani[11] = laserA_12;
+		laser1_ani[12] = laserA_13;
+		laser1_ani[13] = laserA_14;
+		laser1_ani[14] = laserA_15;
+		laser1_ani[15] = laserA_16;
+		laser1_ani[16] = laserA_17;
+		laser1_ani[17] = laserA_18;
+		laser1_ani[18] = laserA_19;
+		laser1_ani[19] = laserA_20;
+		laser1_ani[20] = laserA_21;
+		laser1_ani[21] = laserA_22;
+		laser1_ani[22] = laserA_23;
+		laser1_ani[23] = laserA_24;
+		laser1_ani[24] = laserA_25;
+		laser1_ani[25] = laserA_26;
+		laser1_ani[26] = laserA_27;
+		laser1_ani[27] = laserA_28;
+		laser1_ani[28] = laserA_29;
+		laser1_ani[29] = laserA_30;
+		
+		
+		
+		
+		laser2_ani = new BufferedImage[12];
+		
+		laserB_1 = sheetLaser2.crop(0, 0,318, 145);
+		laserB_2 = sheetLaser2.crop(318, 0,318, 145);
+		laserB_3 = sheetLaser2.crop(636, 0,318, 145);
+		laserB_4 = sheetLaser2.crop(954, 0,318, 145);
+		laserB_5 = sheetLaser2.crop(1272, 0,318, 145);
+		laserB_6 = sheetLaser2.crop(1590, 0,318, 145);
+		laserB_7 = sheetLaser2.crop(1908, 0,318, 145);
+		laserB_8 = sheetLaser2.crop(2226, 0,318, 145);
+		laserB_9 = sheetLaser2.crop(2544, 0,318, 145);
+		laserB_10 = sheetLaser2.crop(2862, 0,318, 145);
+		laserB_11 = sheetLaser2.crop(3180, 0,318, 145);
+		laserB_12 = sheetLaser2.crop(3470, 0,318, 145);
+		
+		laser2_ani[0] = laserB_1;
+		laser2_ani[1] = laserB_2;
+		laser2_ani[2] = laserB_3;
+		laser2_ani[3] = laserB_4;
+		laser2_ani[4] = laserB_5;
+		laser2_ani[5] = laserB_6;
+		laser2_ani[6] = laserB_7;
+		laser2_ani[7] = laserB_8;
+		laser2_ani[8] = laserB_9;
+		laser2_ani[9] = laserB_10;
+		laser2_ani[10] = laserB_11;
+		laser2_ani[11] = laserB_12;
 
-//		alien2 = sheetAlien2.crop(0, 0, 64, 64);
-//		alien3 = sheetAlien3.crop(0, 0, 64, 64);
-//		alien4 = sheetAlien4.crop(0, 0, 64, 64);
-//		alien5 = sheetAlien5.crop(0, 0, 64, 64);
-//		alien6 = sheetAlien6.crop(0, 0, 64, 64);
-//		alien7 = sheetAlien7.crop(0, 0, 64, 64);
-//		
-//		battleship = sheetBattleship.crop(0, 0, 480, 240);
-//		
-//		planet1 = sheetPlanet1.crop(0, 0, 64, 64);
-//		planet2 = sheetPlanet2.crop(0, 0, 256, 256);
-//		planet3 = sheetPlanet3.crop(0, 0, 256, 256);
-//		
-//		game_won = sheetGameWon.crop(0,  0,  480,  480);
-//		ship1 = sheetShip1.crop(0, 0, 64, 64);
-//		ship2 = sheetShip2.crop(0, 0, 64, 64);
-//		ship3 = sheetShip3.crop(0, 0, 64, 64);
-//		ship4 = sheetShip4.crop(0, 0, 64, 64);
-//		ship5 = sheetShip5.crop(0, 0, 64, 64);
-//		
-//		
-//		shotBlue = sheetShotBlue.crop(0, 0, 32, 32);
-//		shotGreen = sheetShotGreen.crop(0, 0, 32, 32);
-//		shotRed = sheetShotRed.crop(0, 0, 32, 32);
+
+		
+	
 		
 		space1 = sheetSpace1.crop(0, 0, 64, 64);
 		space2 = sheetSpace2.crop(0, 0, 64, 64);
