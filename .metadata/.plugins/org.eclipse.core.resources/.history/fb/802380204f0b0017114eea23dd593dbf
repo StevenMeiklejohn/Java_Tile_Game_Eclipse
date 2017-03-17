@@ -15,8 +15,7 @@ public class MenuState extends State {
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		if(handler.getMouseMnager().isRighPressed())
-			State.setState(handler.getGame().gameStates);
+		System.out.println(handler.getMouseMnager().getMouseX() + "   " + handler.getMouseMnager().getMouseY());
 		
 	}
 
