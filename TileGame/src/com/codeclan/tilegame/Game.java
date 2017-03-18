@@ -166,16 +166,7 @@ public class Game implements Runnable {
 //		clear the screen
 		g.clearRect(0, 0, width, height);
 //		draw here
-//		g.fillRect(0, 0, width, height);
-//		end drawing
-//		g.drawRect(10, 50, 50, 70);
-//		g.setColor(Color.red);
-//		g.fillRect(10, 50, 50, 70);
-//		g.setColor(Color.green);
-//		g.fillRect(0, 0, 10, 10);
-		
-//		Image observer is null.
-//		g.drawImage(sheet.crop(64, 0, 64, 64), 5, 5, null);
+
 		
 		if(State.getState() != null)
 			State.getState().render(g);

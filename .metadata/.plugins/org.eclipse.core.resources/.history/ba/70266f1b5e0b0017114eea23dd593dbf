@@ -1,0 +1,18 @@
+package com.codeclan.ui;
+
+import java.util.ArrayList;
+
+import com.codeclan.Handler;
+
+public class UIManager {
+	
+	private Handler handler;
+	private ArrayList<UIObject> objects;
+	
+	public UIManager(Handler handler){
+		this.handler = handler;
+		this.objects = new ArrayList<UIObject>();
+		
+	}
+
+}

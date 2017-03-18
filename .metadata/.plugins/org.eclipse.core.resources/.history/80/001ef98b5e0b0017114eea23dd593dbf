@@ -1,0 +1,43 @@
+package com.codeclan.ui;
+
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+import com.codeclan.Handler;
+
+public class UIManager {
+	
+	private Handler handler;
+	private ArrayList<UIObject> objects;
+	
+	public UIManager(Handler handler){
+		this.handler = handler;
+		this.objects = new ArrayList<UIObject>();
+	}
+	
+	public void update(){
+		
+	}
+	
+	public void render(Graphics g){
+		
+	}
+	
+	public void onMouseMove(MouseEvent e){
+		
+	}
+	
+	public void onMouseRelease(MouseEvent e){
+		
+	}
+	
+	public void addObject(UIObject object){
+		objects.add(object);
+	}
+	
+	public void removeObject(UIObject object){
+		objects.remove(object);
+	}
+
+}

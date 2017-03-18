@@ -22,10 +22,13 @@ public class Assets {
 	laserA_19, laserA_20, laserA_21, laserA_22, laserA_23, laserA_24, laserA_25, laserA_26, laserA_27, 
 	laserA_28, laserA_29, laserA_30,
 	laserB_1, laserB_2, laserB_3, laserB_4, laserB_5, laserB_6, laserB_7, laserB_8, laserB_9,
-	laserB_10, laserB_11, laserB_12;
+	laserB_10, laserB_11, laserB_12,
+	title1, startButton1, startButton2, startButton3,
+	backdrop1, backdrop2, backdrop3;
 
 	public static BufferedImage[] player_ani, explosion_ani, rock1_ani, 
-	alt_explosion1_ani, alt_explosion2_ani, laser1_ani, laser2_ani;
+	alt_explosion1_ani, alt_explosion2_ani, laser1_ani, laser2_ani,
+	start_buttons, titles_array;
 	
 
 
@@ -38,7 +41,12 @@ public class Assets {
 //		SpriteSheet SheetHeart = new SpriteSheet(ImageLoader.loadImage("/textures/heart.png"));
 //		SpriteSheet sheetCoin = new SpriteSheet(ImageLoader.loadImage("/textures/coin.png"));
 ////		aliens
-
+		SpriteSheet sheetTitle = new SpriteSheet(ImageLoader.loadImage("/textures/spaceBastards.png"));
+		SpriteSheet sheetButton = new SpriteSheet(ImageLoader.loadImage("/textures/startButtonCrop.png"));
+		SpriteSheet sheetBackdrop1 = new SpriteSheet(ImageLoader.loadImage("/textures/background1.jpg"));
+		SpriteSheet sheetBackdrop2 = new SpriteSheet(ImageLoader.loadImage("/textures/background2.png"));
+		SpriteSheet sheetBackdrop3 = new SpriteSheet(ImageLoader.loadImage("/textures/background3.jpg"));
+		
 		SpriteSheet sheetExplosion1 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_01.png"));
 		SpriteSheet sheetExplosion2 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_02.png"));
 		SpriteSheet sheetExplosion3 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion_03.png"));
@@ -60,6 +68,20 @@ public class Assets {
 		SpriteSheet sheetSpace1 = new SpriteSheet(ImageLoader.loadImage("/textures/Space1.png"));
 		SpriteSheet sheetSpace2 = new SpriteSheet(ImageLoader.loadImage("/textures/Space2.png"));
 		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/myRockSheet2.png"));
+		
+		start_buttons = new BufferedImage[2];
+		startButton1 = sheetButton.crop(0, 0, 115, 64);
+		startButton2 = sheetButton.crop(115, 0, 115, 64);
+//		startButton3 = sheetButton.crop(230, 0, 344, 64);
+		start_buttons[0] = startButton1;
+		start_buttons[1] = startButton2;
+////		start_buttons[2] = startButton3;
+//		
+		titles_array = new BufferedImage[1];
+		title1 = sheetTitle.crop(0, 0, 538, 189);
+		titles_array[0] = title1;
+//		titles_array[1] = title1;
+//		titles_array[2] = title1;
 
 		player_ani = new BufferedImage[4];
 
@@ -249,6 +271,10 @@ public class Assets {
 		
 		space1 = sheetSpace1.crop(0, 0, 64, 64);
 		space2 = sheetSpace2.crop(0, 0, 64, 64);
+		
+		backdrop1 = sheetBackdrop1.crop(0, 0, 490, 590);
+		backdrop2 = sheetBackdrop2.crop(0, 0, 500, 355);
+		backdrop3 = sheetBackdrop3.crop(0, 0, 500, 570);
 		
 		
 
