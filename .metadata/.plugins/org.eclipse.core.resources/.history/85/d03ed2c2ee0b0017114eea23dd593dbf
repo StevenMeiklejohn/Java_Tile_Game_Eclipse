@@ -69,7 +69,6 @@ public class Assets {
 		SpriteSheet sheetSpace1 = new SpriteSheet(ImageLoader.loadImage("/textures/Space1.png"));
 		SpriteSheet sheetSpace2 = new SpriteSheet(ImageLoader.loadImage("/textures/Space2.png"));
 		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/myRockSheet2.png"));
-		SpriteSheet sheetRocks2 = new SpriteSheet(ImageLoader.loadImage("/textures/spinning_rock_spriteSheet.png"));
 		
 		start_buttons = new BufferedImage[2];
 		startButton1 = sheetButton.crop(0, 0, 115, 64);
@@ -110,25 +109,6 @@ public class Assets {
 		rock1_ani[1] = rock2;
 		rock1_ani[2] = rock3;
 		rock1_ani[3] = rock4;
-		
-		
-		rock2_ani = new BufferedImage[7];
-		
-		bRock1 = sheetRocks2.crop(0, 0, 98, 117);
-		bRock2 = sheetRocks2.crop(98, 0, 94, 117);
-		bRock3 = sheetRocks2.crop(192, 0, 82, 117);
-		bRock4 = sheetRocks2.crop(369, 0, 98, 117);
-		bRock5 = sheetRocks2.crop(468, 0, 96, 117);
-		bRock6 = sheetRocks2.crop(564, 0, 82, 117);
-		bRock7 = sheetRocks2.crop(646, 0, 94, 117);
-		
-		rock2_ani[0] = bRock1;
-		rock2_ani[1] = bRock2;
-		rock2_ani[2] = bRock3;
-		rock2_ani[3] = bRock4;
-		rock2_ani[4] = bRock5;
-		rock2_ani[5] = bRock6;
-		rock2_ani[6] = bRock7;
 		
 		
 		alt_explosion1_ani = new BufferedImage[7];

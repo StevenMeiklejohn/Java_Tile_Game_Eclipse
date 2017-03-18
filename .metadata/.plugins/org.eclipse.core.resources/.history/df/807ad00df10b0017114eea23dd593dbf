@@ -14,7 +14,6 @@ public class EntityManager {
 	private Handler handler;
 	private Player player;
 	private AnimatedRock1 animatedRock1;
-	private AnimatedRock2 animatedRock2;
 	private ArrayList<Entity> entities;
 	
 //	import comparator (and associated methods) to allow us to sort the render oredr of entity array list.
@@ -29,15 +28,13 @@ public class EntityManager {
 		
 	};
 	
-	public EntityManager(Handler handler, Player player, AnimatedRock1 animatedRock1, AnimatedRock2 animatedRock2){
+	public EntityManager(Handler handler, Player player, AnimatedRock1 animatedRock1){
 		this.handler = handler;
 		this.player = player;
 		this.animatedRock1 = animatedRock1;
-		this.animatedRock2 = animatedRock2;
 		entities = new ArrayList<Entity>();
 		entities.add(player);
 		entities.add(animatedRock1);
-		entities.add(animatedRock2);
 	}
 	
 	public void update(){

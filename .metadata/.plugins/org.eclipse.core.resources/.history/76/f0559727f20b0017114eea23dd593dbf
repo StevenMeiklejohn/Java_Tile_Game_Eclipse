@@ -37,7 +37,6 @@ public class EntityManager {
 		entities = new ArrayList<Entity>();
 		entities.add(player);
 		entities.add(animatedRock1);
-		entities.add(animatedRock2);
 	}
 	
 	public void update(){

@@ -38,7 +38,7 @@ public class World {
 		AnimatedRock2 animatedRock2 = new AnimatedRock2(handler, 300, 300);
 
 
-		entityManager = new EntityManager(handler, player, animatedRock1, animatedRock2);
+		entityManager = new EntityManager(handler, player, animatedRock1);
 
 //		entity manager should be above loadWorld
 		loadWorld(path);
@@ -47,8 +47,7 @@ public class World {
 //		static entities(non moving elements, like trees/rock) are instantiated here.
 		entityManager.getAnimatedRock1().setX(300);
 		entityManager.getAnimatedRock1().setY(300);
-		entityManager.getAnimatedRock2().setX(500);
-		entityManager.getAnimatedRock2().setY(500);
+		entityManager.getAnimatedRock2().setX(40);
 		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 250, 250));
 		entityManager.addEntity(new StaticAnimatedExplosion2(handler, 350, 350));
 		entityManager.addEntity(new StaticAnimatedExplosion3(handler, 400, 400));

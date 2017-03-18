@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import com.codeclan.Handler;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
-import com.codeclan.entities.creatures.AnimatedRock2;
 import com.codeclan.entities.creatures.Player;
 import com.codeclan.entities.statics.StaticAnimatedExplosion1;
 import com.codeclan.entities.statics.StaticAnimatedExplosion2;
@@ -35,10 +34,9 @@ public class World {
 		this.handler = handler;
 		Player player = new Player(handler, 100, 100);
 		AnimatedRock1 animatedRock1 = new AnimatedRock1(handler, 300, 300);
-		AnimatedRock2 animatedRock2 = new AnimatedRock2(handler, 300, 300);
 
 
-		entityManager = new EntityManager(handler, player, animatedRock1, animatedRock2);
+		entityManager = new EntityManager(handler, player, animatedRock1);
 
 //		entity manager should be above loadWorld
 		loadWorld(path);
@@ -47,8 +45,6 @@ public class World {
 //		static entities(non moving elements, like trees/rock) are instantiated here.
 		entityManager.getAnimatedRock1().setX(300);
 		entityManager.getAnimatedRock1().setY(300);
-		entityManager.getAnimatedRock2().setX(500);
-		entityManager.getAnimatedRock2().setY(500);
 		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 250, 250));
 		entityManager.addEntity(new StaticAnimatedExplosion2(handler, 350, 350));
 		entityManager.addEntity(new StaticAnimatedExplosion3(handler, 400, 400));

@@ -117,10 +117,10 @@ public class Assets {
 		bRock1 = sheetRocks2.crop(0, 0, 98, 117);
 		bRock2 = sheetRocks2.crop(98, 0, 94, 117);
 		bRock3 = sheetRocks2.crop(192, 0, 82, 117);
-		bRock4 = sheetRocks2.crop(369, 0, 98, 117);
-		bRock5 = sheetRocks2.crop(468, 0, 96, 117);
-		bRock6 = sheetRocks2.crop(564, 0, 82, 117);
-		bRock7 = sheetRocks2.crop(646, 0, 94, 117);
+		bRock4 = sheetRocks2.crop(360, 0, 86, 117);
+		bRock5 = sheetRocks2.crop(460, 0, 100, 117);
+		bRock6 = sheetRocks2.crop(560, 0, 100, 117);
+		bRock7 = sheetRocks2.crop(640, 0, 100, 117);
 		
 		rock2_ani[0] = bRock1;
 		rock2_ani[1] = bRock2;
