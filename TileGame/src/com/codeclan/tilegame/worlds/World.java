@@ -3,6 +3,7 @@ package com.codeclan.tilegame.worlds;
 import java.awt.Graphics;
 
 import com.codeclan.Handler;
+import com.codeclan.entities.Entity;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
@@ -26,6 +27,7 @@ public class World {
 	private int spawnX;
 	private int spawnY;
 	private int[][] tiles;
+	private StaticAnimatedLaser1 laser;
 //	private GameCamera gameCamera;
 	
 //	Entities
@@ -38,7 +40,8 @@ public class World {
 		AnimatedRock2 animatedRock2 = new AnimatedRock2(handler, 300, 300);
 
 
-		entityManager = new EntityManager(handler, player, animatedRock1, animatedRock2);
+
+		entityManager = new EntityManager(handler, player, animatedRock1, animatedRock2, laser);
 
 //		entity manager should be above loadWorld
 		loadWorld(path);
@@ -52,7 +55,7 @@ public class World {
 		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 250, 250));
 		entityManager.addEntity(new StaticAnimatedExplosion2(handler, 350, 350));
 		entityManager.addEntity(new StaticAnimatedExplosion3(handler, 400, 400));
-		entityManager.addEntity(new StaticAnimatedLaser1(handler, 0, 450));
+//		entityManager.addEntity(new StaticAnimatedLaser1(handler, 0, 450));
 		entityManager.addEntity(new StaticAnimatedLaser2(handler, 0, 200));
 	}
 	

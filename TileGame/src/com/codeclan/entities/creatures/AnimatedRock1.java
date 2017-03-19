@@ -22,6 +22,7 @@ public class AnimatedRock1 extends Creature {
 //		bounding box co-ords relative to entity 0, 0.
 		bounds.x = 2;
 		bounds.y = 5;
+		this.name = name;
 //		size of bounding box inside player tile.
 		bounds.width = 58;
 		bounds.height = 58;
@@ -37,6 +38,10 @@ public class AnimatedRock1 extends Creature {
 //		getInput();
 		move();
 //		handler.getGameCamera().centerOnEntity(this);
+	}
+	
+	public void die(){
+		System.out.println("Animated Rock 1 destroyed");
 	}
 	
 //	private void getInput(){

@@ -13,6 +13,9 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 	
 //	Animation
 	private Animation anim;
+	protected int health;
+	protected long loopTime;
+
 	
 	public StaticAnimatedLaser1(Handler handler, float x, float y){
 		super(handler, x, y, Tile.TILE_WIDTH * 18, Tile.TILE_HEIGHT);
@@ -21,9 +24,10 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 		bounds.x = 0;
 		bounds.y = 0;
 //		size of bounding box inside player tile.
-		bounds.width = 0;
-		bounds.height = 0;
+		bounds.width = 300;
+		bounds.height = 19;
 		anim = new Animation(100, Assets.laser1_ani);
+
 		
 	}
 
@@ -31,7 +35,18 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 	public void update() {
 //		Animation
 		anim.update();
-		
+	}
+	
+	
+	
+	@Override
+	public void die(){
+		handler.getWorld().getEntityManager().removeEntity(this);
+	}
+	
+	
+	public long getLoopTime(){
+		return anim.getLoopTime();
 	}
 
 	@Override

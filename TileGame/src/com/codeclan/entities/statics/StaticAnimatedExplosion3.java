@@ -31,7 +31,11 @@ public class StaticAnimatedExplosion3 extends StaticEntity {
 	public void update() {
 //		Animation
 		anim.update();
-		
+	}
+	
+	@Override
+	public void die() {
+		System.out.println("StaticAnimatedExplosion3 destroyed");
 	}
 
 	@Override

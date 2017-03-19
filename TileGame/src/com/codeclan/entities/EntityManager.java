@@ -8,6 +8,7 @@ import com.codeclan.Handler;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
 import com.codeclan.entities.creatures.Player;
+import com.codeclan.entities.statics.StaticAnimatedLaser1;
 
 public class EntityManager {
 	
@@ -15,7 +16,9 @@ public class EntityManager {
 	private Player player;
 	private AnimatedRock1 animatedRock1;
 	private AnimatedRock2 animatedRock2;
+	private StaticAnimatedLaser1 laser;
 	private ArrayList<Entity> entities;
+	private int count;
 	
 //	import comparator (and associated methods) to allow us to sort the render oredr of entity array list.
 	private Comparator<Entity> renderSorter = new Comparator<Entity>(){
@@ -29,15 +32,17 @@ public class EntityManager {
 		
 	};
 	
-	public EntityManager(Handler handler, Player player, AnimatedRock1 animatedRock1, AnimatedRock2 animatedRock2){
+	public EntityManager(Handler handler, Player player, AnimatedRock1 animatedRock1, AnimatedRock2 animatedRock2, StaticAnimatedLaser1 laser){
 		this.handler = handler;
 		this.player = player;
 		this.animatedRock1 = animatedRock1;
 		this.animatedRock2 = animatedRock2;
+		this.laser = laser;
 		entities = new ArrayList<Entity>();
 		entities.add(player);
 		entities.add(animatedRock1);
 		entities.add(animatedRock2);
+
 	}
 	
 	public void update(){
@@ -52,15 +57,22 @@ public class EntityManager {
 	public void render(Graphics g){
 		for(Entity e : entities){
 			e.render(g);
+			if(!e.isActive())
+				entities.remove(e);
 		}
 //		player.render(g);
 	}
 	
-	
+
 	
 	public void addEntity(Entity e){
 		entities.add(e);
 	}
+	
+	public void removeEntity(Entity e){
+		entities.remove(e);
+	}
+	
 	
 //	Getters/Setters
 
@@ -83,7 +95,11 @@ public class EntityManager {
 	public AnimatedRock2 getAnimatedRock2(){
 		return animatedRock2;
 	}
-
+	
+	public StaticAnimatedLaser1 getAnimatedLaser(){
+		return laser;
+	}
+	
 
 	public void setPlayer(Player player) {
 		this.player = player;

@@ -31,7 +31,12 @@ public class StaticAnimatedLaser2 extends StaticEntity {
 	public void update() {
 //		Animation
 		anim.update();
-		
+	}
+	
+	
+	@Override
+	public void die() {
+		System.out.println("StaticAnimatedLaser2 destroyed");
 	}
 
 	@Override
