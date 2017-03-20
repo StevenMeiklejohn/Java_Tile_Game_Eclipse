@@ -27,7 +27,7 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 		bounds.x = 0;
 		bounds.y = 0;
 //		size of bounding box inside player tile.
-		bounds.width = 640;
+		bounds.width = 700;
 		bounds.height = 19;
 		anim = new AnimationOnce(50, Assets.laser1_ani);
 		loopTime = 0;

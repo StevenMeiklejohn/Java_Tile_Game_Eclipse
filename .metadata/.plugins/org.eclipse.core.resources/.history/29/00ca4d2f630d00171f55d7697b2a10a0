@@ -27,7 +27,7 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 		bounds.x = 0;
 		bounds.y = 0;
 //		size of bounding box inside player tile.
-		bounds.width = 640;
+		bounds.width = 500;
 		bounds.height = 19;
 		anim = new AnimationOnce(50, Assets.laser1_ani);
 		loopTime = 0;
@@ -65,9 +65,9 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 				(int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 		g.setColor(Color.red);
-		g.fillRect((int) ((x +20) - handler.getGameCamera().getxOffset()), 
-				(int) ((y + 22) - handler.getGameCamera().getyOffset()),
-				bounds.width, bounds.height + 3);
+		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), 
+				(int) (y + (2*bounds.y) - handler.getGameCamera().getyOffset()),
+				bounds.width, bounds.height);
 	}
 	
 	
