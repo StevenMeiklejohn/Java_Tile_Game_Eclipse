@@ -870,3 +870,16 @@ org.eclipse.core.internal.resources.ResourceException: Resource '/TileGame/src/c
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
 !SUBENTRY 1 org.eclipse.core.resources 4 368 2017-03-15 09:13:15.723
 !MESSAGE Resource '/TileGame/src/com/codeclan/tilegame/tiles/Rock1.java' does not exist.
+!SESSION 2017-03-19 13:49:29.707 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/user/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/user/.eclipse_keyring
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-03-19 13:49:40.143
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2017-03-19 13:49:40.709
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

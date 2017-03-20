@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
 import com.codeclan.entities.EntityManager;
+import com.codeclan.entities.LaserManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
 import com.codeclan.entities.creatures.Player;
@@ -28,6 +29,7 @@ public class World {
 	private int spawnY;
 	private int[][] tiles;
 	private StaticAnimatedLaser1 laser;
+	private LaserManager laserManager;
 //	private GameCamera gameCamera;
 	
 //	Entities
@@ -42,6 +44,7 @@ public class World {
 
 
 		entityManager = new EntityManager(handler, player, animatedRock1, animatedRock2, laser);
+		laserManager = new LaserManager();
 
 //		entity manager should be above loadWorld
 		loadWorld(path);
@@ -62,9 +65,14 @@ public class World {
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
+	
+	public LaserManager getLaserManager(){
+		return laserManager;
+	}
 
 	public void update(){
 		entityManager.update();
+		laserManager.update();
 	}
 	
 	public void render(Graphics g){
@@ -85,6 +93,7 @@ public class World {
 		}
 //		Render entities
 		entityManager.render(g);
+		laserManager.render(g);
 	}
 	
 	public Tile getTile(int x, int y){

@@ -7,12 +7,18 @@ public class Animation {
 	private int speed;
 	private int index;
 	private int timer;
+	private int count;
+
 
 
 	private BufferedImage[] frames;
 	long lastTime;
 	long loopTime1;
 	long loopTime2;
+	long totalLoopTime;
+	int currentIndex;
+
+	
 	
 	
 	
@@ -24,20 +30,25 @@ public class Animation {
 		timer = 0;
 		lastTime = System.currentTimeMillis();
 		loopTime1 = System.currentTimeMillis();
+		totalLoopTime = 0;
+		currentIndex = 0;
 	}
 
 	
 	public void update(){
+		count = 0;
 		timer += System.currentTimeMillis() - lastTime;
 		lastTime = System.currentTimeMillis();
 		loopTime1 = System.currentTimeMillis();
 		
+		
 		if(timer > speed){
 			index++;
+			currentIndex++;
+			currentIndex += 1;
 			timer = 0;
 			if(index >= frames.length){
 				index = 0;
-				loopTime2 = System.currentTimeMillis();
 			}
 		}
 	}
@@ -48,8 +59,12 @@ public class Animation {
 		return frames[index];
 	}
 	
-	public int getLoopTime(){
-		return (int)loopTime2 - (int)loopTime1 / 1000000;
+	public long getTotalLoopTime(){
+		return 00000000;
+	}
+	
+	public int getCurrentIndex(){
+		return currentIndex;
 	}
 	
 

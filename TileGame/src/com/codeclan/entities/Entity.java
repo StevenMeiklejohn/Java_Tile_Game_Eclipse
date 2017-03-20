@@ -20,6 +20,7 @@ public abstract class Entity {
 	public static final int DEFAULT_HEALTH = 10;
 //	active entities (true) will appear on screen, (false) will be removed.
 	protected boolean active = true;
+	int runs;
 
 	
 	public Entity(Handler handler, float x, float y, int width, int height){
@@ -30,6 +31,7 @@ public abstract class Entity {
 		this.height = height;
 		this.handler = handler;
 		anim = new Animation(100, Assets.laser1_ani);
+		runs = 0;
 
 //	Every entity initialised with a bounding (collision detection box) the same size as the entity.
 		bounds = new Rectangle(0, 0, width, height);
@@ -68,6 +70,10 @@ public abstract class Entity {
 	
 	
 //	Getters and Setters
+	
+	public int getRuns(){
+		return runs;
+	}
 	
 	public String getName(){
 		return name;
@@ -133,8 +139,8 @@ public abstract class Entity {
 		this.height = height;
 	}
 	
-	public long getLoopTime(){
-		return anim.getLoopTime();
+	public long getTotalLoopTime(){
+		return anim.getTotalLoopTime();
 	}
 
 

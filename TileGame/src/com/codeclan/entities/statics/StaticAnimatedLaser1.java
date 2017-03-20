@@ -6,13 +6,16 @@ import java.awt.image.BufferedImage;
 
 import com.codeclan.Handler;
 import com.codeclan.gfx.Animation;
+import com.codeclan.gfx.AnimationOnce;
 import com.codeclan.gfx.Assets;
 import com.codeclan.tilegame.tiles.Tile;
 
 public class StaticAnimatedLaser1 extends StaticEntity {
 	
+	int runs;
+	
 //	Animation
-	private Animation anim;
+	private AnimationOnce anim;
 	protected int health;
 	protected long loopTime;
 
@@ -26,7 +29,9 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 //		size of bounding box inside player tile.
 		bounds.width = 300;
 		bounds.height = 19;
-		anim = new Animation(100, Assets.laser1_ani);
+		anim = new AnimationOnce(50, Assets.laser1_ani);
+		loopTime = 0;
+		runs = 0;
 
 		
 	}
@@ -34,20 +39,24 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 	@Override
 	public void update() {
 //		Animation
-		anim.update();
+			anim.update();
+			runs += 1;
 	}
 	
 	
 	
 	@Override
 	public void die(){
-		handler.getWorld().getEntityManager().removeEntity(this);
+		System.out.println("laser die method is triggered");
+		handler.getWorld().getLaserManager().removeEntity(this);
 	}
 	
 	
-	public long getLoopTime(){
-		return anim.getLoopTime();
-	}
+//	public long getTotalLoopTime(){
+//		System.out.println(anim.getTotalLoopTime());
+//		return anim.getTotalLoopTime();
+//	}
+
 
 	@Override
 	public void render(Graphics g) {
@@ -64,6 +73,10 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 	
 	public BufferedImage getCurrentAnimationFrame(){
 		return anim.getCurrentFrame();
+	}
+	
+	public int getRuns(){
+		return runs;
 	}
 
 }

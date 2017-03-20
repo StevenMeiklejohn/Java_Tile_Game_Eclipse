@@ -1,0 +1,56 @@
+package com.codeclan.gfx;
+
+import java.awt.image.BufferedImage;
+
+public class AnimationOnce {
+	
+	private int speed;
+	private int index;
+	private int timer;
+	private int count;
+
+
+	private BufferedImage[] frames;
+	long lastTime;
+	long loopTime1;
+
+	
+	
+	public AnimationOnce(int speed, BufferedImage[] frames){
+		this.frames = frames;
+		this.speed = speed;
+		index = 0;
+		timer = 0;
+		lastTime = System.currentTimeMillis();
+		loopTime1 = System.currentTimeMillis();
+	}
+
+	
+	public void update(){
+		count = 0;
+		timer += System.currentTimeMillis() - lastTime;
+		lastTime = System.currentTimeMillis();
+		loopTime1 = System.currentTimeMillis();
+		
+		if(timer > speed){
+			index++;
+			timer = 0;
+			if(index >= frames.length){
+				index=0;
+			}
+		}
+	}
+	
+	
+	
+	public BufferedImage getCurrentFrame(){
+		return frames[index];
+	}
+	
+	public long getLoopTime(){
+		long loopTime2 = System.currentTimeMillis();
+		System.out.println("Update has triggered and loop time is" + (loopTime2 - loopTime1 / 10000));
+		return loopTime2 - loopTime1 / 10000;
+	}
+
+}

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
@@ -17,6 +18,8 @@ public class Player extends Creature {
 	private Animation anim;
 	private Animation laser_anim;
 	private StaticAnimatedLaser1 laser;
+	private ArrayList<Entity> laserManager;
+
 	
 	
 
@@ -30,8 +33,10 @@ public class Player extends Creature {
 //		size of bounding box inside player tile.
 		bounds.width = 50;
 		bounds.height = 15;
+		laserManager = new ArrayList<Entity>();
 		anim = new Animation(300, Assets.player_ani);
 		laser_anim = new Animation(100, Assets.laser1_ani);
+
 		
 	}
 
@@ -57,24 +62,34 @@ public class Player extends Creature {
 		Rectangle cb = getCollisionBounds(0,0);
 		Rectangle ar = new Rectangle();
 		int arSize = 20;
-		ar.width = 400;
-		ar.height = 19;
 		
 		if(handler.getKeyManager().fire){
-			ar.x = cb.x = ar.width;
-			ar.y = cb.y = ar.height;
-			laser = new StaticAnimatedLaser1(handler, this.x + 40, this.y);
-			handler.getWorld().getEntityManager().addEntity(laser);
-
-		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-			if(e.equals(this))
-				continue;
-			if(e.getCollisionBounds(0, 0).intersects(ar)){
-				e.hurt(1);
-			}
+		ar.x = cb.x = ar.width;
+		ar.y = cb.y = ar.height;
+		System.out.println("Fire key triggered");
+		laser = new StaticAnimatedLaser1(handler, this.x + 40, this.y);
+		handler.getWorld().getLaserManager().addEntity(laser);
 		}
-		}
+		
+	
+//		if(handler.getKeyManager().fire){
+//			ar.x = cb.x = ar.width;
+//			ar.y = cb.y = ar.height;
+//			laser = new StaticAnimatedLaser1(handler, this.x + 40, this.y);
+//			handler.getWorld().getEntityManager().addEntity(laser);
+//
+//		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+//			if(e.equals(this))
+//				continue;
+//			if(e.getCollisionBounds(0, 0).intersects(ar)){
+//				e.hurt(1);
+//			}
+//		}
+//		}
 	}
+	
+	
+
 	
 	
 	public void die(){
@@ -94,18 +109,7 @@ public class Player extends Creature {
 			xMove = speed;
 	}
 	
-	public void checkLaserLoop(){
-		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-			if(e.equals(laser)){
-				System.out.print((int) e.getLoopTime() + "+++++++++");
-				if(e.getLoopTime() > 425){
-				System.out.println("remove laser should be triggered");
-				e.die();
-				}
-			}
-		}
-	}
-	
+
 
 
 	@Override
