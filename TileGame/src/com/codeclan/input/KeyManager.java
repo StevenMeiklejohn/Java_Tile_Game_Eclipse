@@ -7,7 +7,7 @@ public class KeyManager implements KeyListener{
 	
 	private boolean[] keys;
 	public boolean up, down, left ,right;
-	public boolean fire, bomb;
+	public boolean fire, fire2, bomb, rock;
 	
 	public KeyManager(){
 		keys = new boolean[256];
@@ -20,7 +20,9 @@ public class KeyManager implements KeyListener{
 		right = keys[KeyEvent.VK_P];
 		
 		fire = keys[KeyEvent.VK_SPACE];
+		fire2 = keys[KeyEvent.VK_M];
 		bomb = keys[KeyEvent.VK_B];
+//		rock = keys[KeyEvent.VK_R];
 	}
 
 	@Override

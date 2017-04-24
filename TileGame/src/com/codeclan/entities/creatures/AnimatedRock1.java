@@ -3,6 +3,7 @@ package com.codeclan.entities.creatures;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import com.codeclan.Handler;
 import com.codeclan.gfx.Animation;
@@ -44,21 +45,6 @@ public class AnimatedRock1 extends Creature {
 		System.out.println("Animated Rock 1 destroyed");
 	}
 	
-//	private void getInput(){
-//		xMove = 0;
-//		yMove = 0;
-//		if(handler.getKeyManager().up)
-//			yMove = -speed;
-//		if(handler.getKeyManager().down)
-//			yMove = speed;
-//		if(handler.getKeyManager().left)
-//			xMove = -speed;
-//		if(handler.getKeyManager().right)
-//			xMove = speed;
-//	}
-	
-
-
 	@Override
 	public void render(Graphics g) {
 //		use casting to convert int variable to float (as defined by entity)

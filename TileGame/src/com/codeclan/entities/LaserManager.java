@@ -17,7 +17,7 @@ public class LaserManager {
 	private ArrayList<Entity> entities;
 
 	
-//	import comparator (and associated methods) to allow us to sort the render oredr of entity array list.
+//	import comparator (and associated methods) to allow us to sort the render order of entity array list.
 	private Comparator<Entity> renderSorter = new Comparator<Entity>(){
 
 		@Override

@@ -6,6 +6,7 @@ import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.LaserManager;
+import com.codeclan.entities.RockManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
 import com.codeclan.entities.creatures.Player;
@@ -20,6 +21,7 @@ import com.codeclan.entities.statics.StaticAnimatedLaser2;
 //import com.codeclan.tilegame.Game;
 import com.codeclan.tilegame.tiles.Tile;
 import com.codeclan.utils.Utils;
+import java.util.Random;
 
 public class World {
 	private Handler handler;
@@ -29,7 +31,10 @@ public class World {
 	private int spawnY;
 	private int[][] tiles;
 	private StaticAnimatedLaser1 laser;
+	private AnimatedRock1 rock;
+	private AnimatedRock1 newRock;
 	private LaserManager laserManager;
+	private RockManager rockManager;
 //	private GameCamera gameCamera;
 	
 //	Entities
@@ -38,28 +43,31 @@ public class World {
 	public World(Handler handler, String path){
 		this.handler = handler;
 		Player player = new Player(handler, 100, 100);
-		AnimatedRock1 animatedRock1 = new AnimatedRock1(handler, 300, 300);
-		AnimatedRock2 animatedRock2 = new AnimatedRock2(handler, 300, 300);
+//		AnimatedRock1 animatedRock1 = new AnimatedRock1(handler, 300, 300);
+//		AnimatedRock2 animatedRock2 = new AnimatedRock2(handler, 300, 300);
 
 
 
-		entityManager = new EntityManager(handler, player, animatedRock1, animatedRock2, laser);
+		entityManager = new EntityManager(handler, player);
 		laserManager = new LaserManager();
+		rockManager = new RockManager();
 
 //		entity manager should be above loadWorld
 		loadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setX(spawnY);
 //		static entities(non moving elements, like trees/rock) are instantiated here.
-		entityManager.getAnimatedRock1().setX(300);
-		entityManager.getAnimatedRock1().setY(300);
-		entityManager.getAnimatedRock2().setX(500);
-		entityManager.getAnimatedRock2().setY(500);
+//		entityManager.getAnimatedRock1().setX(300);
+//		entityManager.getAnimatedRock1().setY(300);
+//		entityManager.getAnimatedRock2().setX(500);
+//		entityManager.getAnimatedRock2().setY(500);
+		
+		rockManager.addCreature(generateRock());
 		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 250, 250));
 		entityManager.addEntity(new StaticAnimatedExplosion2(handler, 350, 350));
 		entityManager.addEntity(new StaticAnimatedExplosion3(handler, 400, 400));
 //		entityManager.addEntity(new StaticAnimatedLaser1(handler, 0, 450));
-		entityManager.addEntity(new StaticAnimatedLaser2(handler, 0, 200));
+//		entityManager.addEntity(new StaticAnimatedLaser2(handler, 0, 200));
 	}
 	
 	public EntityManager getEntityManager() {
@@ -69,10 +77,25 @@ public class World {
 	public LaserManager getLaserManager(){
 		return laserManager;
 	}
+	
+	public RockManager getRockManager(){
+		return rockManager;
+	}
+	
+	public AnimatedRock1 generateRock(){
+		Random random = new Random();
+		int genY = random.nextInt(500 - 20 + 1) + 20;
+		int genX = random.nextInt(500 - 20 + 1) + 20;
+		newRock = new AnimatedRock1(handler, genX, genY);
+		return newRock;
+	}
 
 	public void update(){
 		entityManager.update();
 		laserManager.update();
+		rockManager.update();
+		rockManager.addCreature(generateRock());
+		
 	}
 	
 	public void render(Graphics g){
@@ -94,6 +117,7 @@ public class World {
 //		Render entities
 		entityManager.render(g);
 		laserManager.render(g);
+		rockManager.render(g);
 	}
 	
 	public Tile getTile(int x, int y){
@@ -134,6 +158,8 @@ public class World {
 			}
 			
 	}
+	
+
 	
 	public int getWidth(){
 		return this.width;

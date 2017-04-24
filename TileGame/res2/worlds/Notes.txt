@@ -1,0 +1,58 @@
+
+	
+	
+---* Handler
+
+Instance Variables
+	- game
+	- world
+	
+Methods
+	- getgame
+	- getworld
+	- getcamera
+	- getKeyManager
+	
+	
+	
+	
+--* Anim
+
+Instance Variables.
+	- speed
+	- index
+	- timer
+	- count
+	
+Methods
+	- getBufferedImage
+	- getIndex
+	- update.
+	
+	
+	
+	Entity
+
+Instance Variables.
+	- health (int)
+	- x , y
+	- width, height
+	- bounds
+	- name
+	- anim --*
+	- handler ---*
+	
+Methods
+	- getters/setter
+	- getCollisionBounds
+	- getEntityCollision
+	- applyDamage
+	
+	
+	|
+	|
+	
+	
+	
+	
+	

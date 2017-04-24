@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
 import com.codeclan.entities.statics.StaticAnimatedLaser1;
+import com.codeclan.entities.statics.StaticAnimatedLaser2;
 import com.codeclan.gfx.Animation;
 import com.codeclan.gfx.Assets;
 import com.codeclan.tilegame.Game;
@@ -18,6 +19,9 @@ public class Player extends Creature {
 	private Animation anim;
 	private Animation laser_anim;
 	private StaticAnimatedLaser1 laser;
+	private StaticAnimatedLaser2 laser2;
+	private AnimatedRock1 rock;
+	private ArrayList<Creature> rockManager;
 	private ArrayList<Entity> laserManager;
 
 	
@@ -70,6 +74,15 @@ public class Player extends Creature {
 		laser = new StaticAnimatedLaser1(handler, this.x + 40, this.y);
 		handler.getWorld().getLaserManager().addEntity(laser);
 		}
+		
+//		if(handler.getKeyManager().rock){
+//			ar.x = cb.x = ar.width;
+//			ar.y = cb.y = ar.height;
+//			System.out.println("Rock key triggered");
+//			rock = new AnimatedRock1(handler, 200, 200);
+//			handler.getWorld().getRockManager().addCreature(rock);
+//			}
+
 		
 	
 //		if(handler.getKeyManager().fire){

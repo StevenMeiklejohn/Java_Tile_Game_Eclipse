@@ -56,6 +56,12 @@ public class AnimatedRock2 extends Creature {
 //			xMove = speed;
 //	}
 	
+	public void move(){
+		xMove = 640;
+		yMove = 320;
+		xMove = -speed;
+	}
+	
 
 
 	@Override

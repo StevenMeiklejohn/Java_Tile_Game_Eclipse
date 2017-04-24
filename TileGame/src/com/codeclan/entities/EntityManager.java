@@ -7,6 +7,7 @@ import java.util.Comparator;
 import com.codeclan.Handler;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
+import com.codeclan.entities.creatures.Creature;
 import com.codeclan.entities.creatures.Player;
 import com.codeclan.entities.statics.StaticAnimatedLaser1;
 
@@ -32,16 +33,16 @@ public class EntityManager {
 		
 	};
 	
-	public EntityManager(Handler handler, Player player, AnimatedRock1 animatedRock1, AnimatedRock2 animatedRock2, StaticAnimatedLaser1 laser){
+	public EntityManager(Handler handler, Player player){
 		this.handler = handler;
 		this.player = player;
-		this.animatedRock1 = animatedRock1;
-		this.animatedRock2 = animatedRock2;
-		this.laser = laser;
+//		this.animatedRock1 = animatedRock1;
+//		this.animatedRock2 = animatedRock2;
+//		this.laser = laser;
 		entities = new ArrayList<Entity>();
 		entities.add(player);
-		entities.add(animatedRock1);
-		entities.add(animatedRock2);
+//		entities.add(animatedRock1);
+//		entities.add(animatedRock2);
 
 	}
 	
@@ -73,6 +74,14 @@ public class EntityManager {
 		entities.remove(e);
 	}
 	
+	
+	public void addCreature(Creature c){
+		entities.add(c);
+	}
+	
+	public void removeCreature(Creature c){
+		entities.remove(c);
+	}
 	
 //	Getters/Setters
 

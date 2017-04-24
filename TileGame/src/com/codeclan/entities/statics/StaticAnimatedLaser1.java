@@ -64,7 +64,7 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 		g.drawImage(getCurrentAnimationFrame(), 
 				(int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-		g.setColor(Color.red);
+//		g.setColor(Color.red);
 		g.fillRect((int) ((x +20) - handler.getGameCamera().getxOffset()), 
 				(int) ((y + 22) - handler.getGameCamera().getyOffset()),
 				bounds.width, bounds.height + 3);
