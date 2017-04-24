@@ -57,15 +57,7 @@ public class Assets {
 		SpriteSheet sheetExplosionAlt2 = new SpriteSheet(ImageLoader.loadImage("/textures/explosion-6.png"));
 		SpriteSheet sheetLaser1 = new SpriteSheet(ImageLoader.loadImage("/textures/laserSpriteSheet.png"));
 		SpriteSheet sheetLaser2 = new SpriteSheet(ImageLoader.loadImage("/textures/giantLaserSpriteSheet.png"));
-////		game won
-//		SpriteSheet sheetGameWon = new SpriteSheet(ImageLoader.loadImage("/textures/game_won_illustration.png"));
 
-
-////		bullets
-//		SpriteSheet sheetShotBlue = new SpriteSheet(ImageLoader.loadImage("/textures/ShotBlue.png"));
-//		SpriteSheet sheetShotGreen = new SpriteSheet(ImageLoader.loadImage("/textures/ShotGreen.png"));
-//		SpriteSheet sheetShotRed = new SpriteSheet(ImageLoader.loadImage("/textures/ShotRed.png"));
-//		backgrounds
 		SpriteSheet sheetSpace1 = new SpriteSheet(ImageLoader.loadImage("/textures/Space1.png"));
 		SpriteSheet sheetSpace2 = new SpriteSheet(ImageLoader.loadImage("/textures/Space2.png"));
 		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/myRockSheet2.png"));

@@ -96,7 +96,7 @@ public class World {
 	}
 	
 	public StaticAnimatedExplosion1 generateExplosion(){
-		explosion1 = new StaticAnimatedExplosion1(handler, 100, 100);
+		explosion1 = new StaticAnimatedExplosion1(handler, 300, 300);
 		return explosion1;
 	}
 

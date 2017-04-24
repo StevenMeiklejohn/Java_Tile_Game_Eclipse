@@ -42,7 +42,7 @@ public class ExplosionManager {
 		for (int i = 0; i < entities.size(); i++){
 			Entity e = entities.get(i);
 			System.out.println("Number of runs is " + e.getRuns());
-			if(e.getRuns() > 30){
+			if(e.getRuns() > 100){
 				entities.remove(e);
 			}
 			e.update();
