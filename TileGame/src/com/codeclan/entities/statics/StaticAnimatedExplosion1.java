@@ -6,16 +6,22 @@ import java.awt.image.BufferedImage;
 
 import com.codeclan.Handler;
 import com.codeclan.gfx.Animation;
+import com.codeclan.gfx.AnimationOnce;
 import com.codeclan.gfx.Assets;
 import com.codeclan.tilegame.tiles.Tile;
 
 public class StaticAnimatedExplosion1 extends StaticEntity {
 	
+	int runs;
+	
 //	Animation
-	private Animation anim;
+	private AnimationOnce anim;
+	protected int health;
+	protected long loopTime;
+
 	
 	public StaticAnimatedExplosion1(Handler handler, float x, float y){
-		super(handler, x, y, Tile.TILE_WIDTH, Tile.TILE_HEIGHT);
+		super(handler, x, y, Tile.TILE_WIDTH * 18, Tile.TILE_HEIGHT);
 // 		setup bounding box.	
 //		bounding box co-ords relative to entity 0, 0.
 		bounds.x = 0;
@@ -23,38 +29,54 @@ public class StaticAnimatedExplosion1 extends StaticEntity {
 //		size of bounding box inside player tile.
 		bounds.width = 0;
 		bounds.height = 0;
-		anim = new Animation(100, Assets.explosion_ani);
+		anim = new AnimationOnce(100, Assets.alt_explosion1_ani);
+		loopTime = 0;
+		runs = 0;
+
 		
 	}
 
 	@Override
 	public void update() {
 //		Animation
-		anim.update();
+			anim.update();
+			runs += 1;
 	}
 	
+	
+	
 	@Override
-	public void die() {
-		System.out.println("StaticAnimatedExplosion1 destroyed");
+	public void die(){
+		System.out.println("explosion die method is triggered");
+		handler.getWorld().getExplosionManager().removeEntity(this);
 	}
+	
+	
+//	public long getTotalLoopTime(){
+//		System.out.println(anim.getTotalLoopTime());
+//		return anim.getTotalLoopTime();
+//	}
+
 
 	@Override
 	public void render(Graphics g) {
 //		use casting to convert int variable to float (as defined by entity)
 		g.drawImage(getCurrentAnimationFrame(), 
 				(int) (x - handler.getGameCamera().getxOffset()), 
-				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+				(int) (y - handler.getGameCamera().getyOffset()), 64, 64, null);
 //		g.setColor(Color.red);
-//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), 
-//				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-//				bounds.width, bounds.height);
+		g.fillRect((int) ((x +20) - handler.getGameCamera().getxOffset()), 
+				(int) ((y + 22) - handler.getGameCamera().getyOffset()),
+				bounds.width, bounds.height + 3);
 	}
 	
 	
 	public BufferedImage getCurrentAnimationFrame(){
 		return anim.getCurrentFrame();
 	}
-
-
+	
+	public int getRuns(){
+		return runs;
+	}
 
 }

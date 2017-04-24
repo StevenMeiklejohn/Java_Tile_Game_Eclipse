@@ -38,6 +38,11 @@ public abstract class Creature extends Entity {
 //	######################################
 //	######################################
 	
+	
+	public void encroachX(){
+		
+	}
+	
 	public void moveX(){
 //		moving right
 		if(xMove > 0){

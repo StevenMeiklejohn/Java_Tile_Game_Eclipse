@@ -75,7 +75,7 @@ public class RockManager {
 
 	
 	public void addCreature(Creature c){
-		if(creatures.size() <= 15){
+		if(creatures.size() <= 5){
 		creatures.add(c);
 		}
 	}

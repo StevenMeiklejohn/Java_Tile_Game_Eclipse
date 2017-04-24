@@ -24,6 +24,9 @@ public class AnimatedRock1 extends Creature {
 		bounds.x = 2;
 		bounds.y = 5;
 		this.name = name;
+		Random random = new Random();
+		this.speed = random.nextInt(6 - 3 + 1) + 3;
+		this.xMove = -this.speed;
 //		size of bounding box inside player tile.
 		bounds.width = 58;
 		bounds.height = 58;

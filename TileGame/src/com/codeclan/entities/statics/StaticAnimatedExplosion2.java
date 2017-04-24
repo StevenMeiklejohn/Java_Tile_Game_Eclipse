@@ -23,7 +23,7 @@ public class StaticAnimatedExplosion2 extends StaticEntity {
 //		size of bounding box inside player tile.
 		bounds.width = 0;
 		bounds.height = 0;
-		anim = new Animation(100, Assets.alt_explosion1_ani);
+		anim = new Animation(100, Assets.alt_explosion2_ani);
 		
 	}
 
