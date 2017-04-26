@@ -18,7 +18,8 @@ public class Player extends Creature {
 //	Animation
 	private Animation anim;
 	private Animation laser_anim;
-	private StaticAnimatedLaser1 laser;
+	private AnimatedLaser1 laser;
+//	private StaticAnimatedLaser1 laser;
 	private StaticAnimatedLaser2 laser2;
 	private AnimatedRock1 rock;
 	private ArrayList<Creature> rockManager;
@@ -37,7 +38,7 @@ public class Player extends Creature {
 //		size of bounding box inside player tile.
 		bounds.width = 50;
 		bounds.height = 15;
-		laserManager = new ArrayList<Entity>();
+//		laserManager = new ArrayList<Entity>();
 		anim = new Animation(300, Assets.player_ani);
 		laser_anim = new Animation(100, Assets.laser1_ani);
 
@@ -70,26 +71,11 @@ public class Player extends Creature {
 		if(handler.getKeyManager().fire){
 		ar.x = cb.x = ar.width;
 		ar.y = cb.y = ar.height;
-		System.out.println("Fire key triggered");
-		laser = new StaticAnimatedLaser1(handler, this.x + 40, this.y);
-		handler.getWorld().getLaserManager().addEntity(laser);
+//		System.out.println("Fire key triggered");
+		laser = new AnimatedLaser1(handler, this.x + 40, this.y);
+		handler.getWorld().getEntityManager().addEntity(laser);
 		}
-		
-//		if(handler.getKeyManager().rock){
-//			ar.x = cb.x = ar.width;
-//			ar.y = cb.y = ar.height;
-//			System.out.println("Rock key triggered");
-//			rock = new AnimatedRock1(handler, 200, 200);
-//			handler.getWorld().getRockManager().addCreature(rock);
-//			}
 
-		
-	
-//		if(handler.getKeyManager().fire){
-//			ar.x = cb.x = ar.width;
-//			ar.y = cb.y = ar.height;
-//			laser = new StaticAnimatedLaser1(handler, this.x + 40, this.y);
-//			handler.getWorld().getEntityManager().addEntity(laser);
 //
 //		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
 //			if(e.equals(this))
@@ -101,8 +87,6 @@ public class Player extends Creature {
 //		}
 	}
 	
-	
-
 	
 	
 	public void die(){
@@ -159,6 +143,10 @@ public class Player extends Creature {
 //				}
 //			}
 //		}
+	}
+	
+	public int getRuns(){
+		return 0;
 	}
 	
 

@@ -3,8 +3,10 @@ package com.codeclan.entities.statics;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import com.codeclan.Handler;
+import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.gfx.Animation;
 import com.codeclan.gfx.AnimationOnce;
 import com.codeclan.gfx.Assets;
@@ -18,6 +20,8 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 	private AnimationOnce anim;
 	protected int health;
 	protected long loopTime;
+	StaticAnimatedExplosion1 exp;
+
 
 	
 	public StaticAnimatedLaser1(Handler handler, float x, float y){
@@ -32,6 +36,7 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 		anim = new AnimationOnce(50, Assets.laser1_ani);
 		loopTime = 0;
 		runs = 0;
+		health = 10;
 
 		
 	}
@@ -47,8 +52,9 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 	
 	@Override
 	public void die(){
-		System.out.println("laser die method is triggered");
-		handler.getWorld().getLaserManager().removeEntity(this);
+		System.out.println("StaticAnimatedLaser1 collision detected. die() called.");
+//		handler.getWorld().getExplosionManager().addEntity(generateExplosion(this.x, this.y));
+//		handler.getWorld().getRockManager().removeEntity(this);
 	}
 	
 	
@@ -65,9 +71,9 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 				(int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 //		g.setColor(Color.red);
-		g.fillRect((int) ((x +20) - handler.getGameCamera().getxOffset()), 
-				(int) ((y + 22) - handler.getGameCamera().getyOffset()),
-				bounds.width, bounds.height + 3);
+//		g.fillRect((int) ((x +20) - handler.getGameCamera().getxOffset()), 
+//				(int) ((y + 22) - handler.getGameCamera().getyOffset()),
+//				bounds.width, bounds.height + 3);
 	}
 	
 	
@@ -77,6 +83,11 @@ public class StaticAnimatedLaser1 extends StaticEntity {
 	
 	public int getRuns(){
 		return runs;
+	}
+	
+	public StaticAnimatedExplosion1 generateExplosion(float x, float y){
+	 exp = new StaticAnimatedExplosion1(handler, x, y);
+		return exp;
 	}
 
 }

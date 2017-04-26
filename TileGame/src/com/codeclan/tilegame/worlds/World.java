@@ -35,7 +35,7 @@ public class World {
 	private StaticAnimatedExplosion1 explosion1;
 	private AnimatedRock1 rock;
 	private AnimatedRock1 newRock;
-	private LaserManager laserManager;
+//	private LaserManager laserManager;
 	private RockManager rockManager;
 	private ExplosionManager explosionManager;
 //	private GameCamera gameCamera;
@@ -51,7 +51,7 @@ public class World {
 
 
 		entityManager = new EntityManager(handler, player);
-		laserManager = new LaserManager();
+//		laserManager = new LaserManager();
 		rockManager = new RockManager();
 		explosionManager = new ExplosionManager();
 
@@ -61,7 +61,7 @@ public class World {
 		entityManager.getPlayer().setX(spawnY);
 		
 		
-		explosionManager.addEntity(generateExplosion());
+//		explosionManager.addEntity(generateExplosion(300, 300));
 
 		
 		rockManager.addCreature(generateRock());
@@ -75,9 +75,9 @@ public class World {
 		return entityManager;
 	}
 	
-	public LaserManager getLaserManager(){
-		return laserManager;
-	}
+//	public LaserManager getLaserManager(){
+//		return laserManager;
+//	}
 	
 	public RockManager getRockManager(){
 		return rockManager;
@@ -95,14 +95,14 @@ public class World {
 		return newRock;
 	}
 	
-	public StaticAnimatedExplosion1 generateExplosion(){
-		explosion1 = new StaticAnimatedExplosion1(handler, 300, 300);
+	public StaticAnimatedExplosion1 generateExplosion(float x, float y){
+		explosion1 = new StaticAnimatedExplosion1(handler, x, y);
 		return explosion1;
 	}
 
 	public void update(){
 		entityManager.update();
-		laserManager.update();
+//		laserManager.update();
 		explosionManager.update();
 		rockManager.update();
 		rockManager.addCreature(generateRock());
@@ -127,7 +127,7 @@ public class World {
 		}
 //		Render entities
 		entityManager.render(g);
-		laserManager.render(g);
+//		laserManager.render(g);
 		explosionManager.render(g);
 		rockManager.render(g);
 	}

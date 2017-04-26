@@ -52,6 +52,7 @@ public abstract class Entity {
 	
 	public boolean checkEntityCollisions(float xOffset, float yOffset){
 		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+//			avoid current entity checking for collisions with itself while looping round entities.
 			if(e.equals(this))
 				continue;
 			if(e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset)))

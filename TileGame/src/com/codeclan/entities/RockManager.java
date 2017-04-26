@@ -80,8 +80,12 @@ public class RockManager {
 		}
 	}
 	
-	public void removeEntity(Creature c){
+	public void removeCreature(Creature c){
 		creatures.remove(c);
+	}
+	
+	public ArrayList<Creature> getCreatures() {
+		return creatures;
 	}
 	
 	

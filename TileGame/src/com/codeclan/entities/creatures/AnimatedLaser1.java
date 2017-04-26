@@ -8,42 +8,41 @@ import java.util.Random;
 import com.codeclan.Handler;
 import com.codeclan.entities.statics.StaticAnimatedExplosion1;
 import com.codeclan.gfx.Animation;
+import com.codeclan.gfx.AnimationOnce;
 import com.codeclan.gfx.Assets;
 import com.codeclan.tilegame.Game;
+import com.codeclan.tilegame.tiles.Tile;
 
-public class AnimatedRock1 extends Creature {
+public class AnimatedLaser1 extends Creature {
 //	Animation
-	private Animation anim;
+	private int runs;
+	protected long loopTime;
+	private AnimationOnce anim;
 	StaticAnimatedExplosion1 exp;
 	
 	
 
-	public AnimatedRock1(Handler handler, float x, float y) {
+	public AnimatedLaser1(Handler handler, float x, float y) {
 //		changing these defaults for numbers allows us to re-size the player object.
-		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+		super(handler, x, y, Tile.TILE_WIDTH * 18, Tile.TILE_HEIGHT);
 // 		setup bounding box.	
 //		bounding box co-ords relative to entity 0, 0.
-		bounds.x = 2;
-		bounds.y = 5;
-		this.name = name;
-		Random random = new Random();
-		this.speed = random.nextInt(4 - 2 + 1) + 2;
-		this.xMove = -this.speed;
-//		size of bounding box inside player tile.
-		bounds.width = 58;
-		bounds.height = 58;
-		anim = new Animation(300, Assets.rock1_ani);
+		bounds.x = 0;
+		bounds.y = 0;
+//		size of bounding box inside laser tile.
+		bounds.width = 640;
+		bounds.height = 19;
+		anim = new AnimationOnce(50, Assets.laser1_ani);
+		loopTime = 0;
+		runs = 0;
+		health = 10;
 	}
 
-//	Updates all variables
 	@Override
 	public void update() {
 //		Animation
-		anim.update();
-//		Move
-//		getInput();
-		move();
-//		handler.getGameCamera().centerOnEntity(this);
+			anim.update();
+			runs += 1;
 	}
 	
 	public StaticAnimatedExplosion1 generateExplosion(float x, float y){
@@ -53,9 +52,9 @@ public class AnimatedRock1 extends Creature {
 	
 	@Override
 	public void die(){
-		System.out.println("AnimatedRock1 collision detected. die() called.");
-		handler.getWorld().getExplosionManager().addEntity(generateExplosion(this.x, this.y));
-		handler.getWorld().getRockManager().removeCreature(this);
+		System.out.println("AnimatedLaser1 collision detected. die() called.");
+//		handler.getWorld().getExplosionManager().addEntity(generateExplosion(this.x, this.y));
+//		handler.getWorld().getRockManager().removeCreature(this);
 	}
 	
 	@Override
@@ -95,8 +94,9 @@ public class AnimatedRock1 extends Creature {
 	}
 	
 	public int getRuns(){
-		return 0;
+		return runs;
 	}
+	
 
 	
 	

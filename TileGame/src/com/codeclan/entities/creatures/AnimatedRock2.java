@@ -100,6 +100,10 @@ public class AnimatedRock2 extends Creature {
 //		}
 	}
 	
+	public int getRuns(){
+		return 0;
+	}
+	
 
 	
 	

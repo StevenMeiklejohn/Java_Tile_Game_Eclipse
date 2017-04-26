@@ -75,6 +75,10 @@ public class LaserManager {
 		entities.remove(e);
 	}
 	
+	public ArrayList<Entity> getEntities() {
+		return entities;
+	}
+	
 	
 
 	

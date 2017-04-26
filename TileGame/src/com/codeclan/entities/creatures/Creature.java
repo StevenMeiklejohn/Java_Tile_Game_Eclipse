@@ -16,20 +16,28 @@ public abstract class Creature extends Entity {
 	protected float speed; 
 	protected float xMove;
 	protected float yMove;
+	protected boolean alive;
 
 	public Creature(Handler handler, Float x, Float y, int width, int height) {
 		super(handler, x, y, width, height);
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
+		alive = true;
 		
 	}
 	
 	public void move(){
 		if(!checkEntityCollisions(xMove, 0f))
-		moveX();
+			moveX();
 		if(!checkEntityCollisions(0f, yMove))
-		moveY();
+			moveY();
+		if(checkEntityCollisions(xMove, 0f))
+			die();
+		if(checkEntityCollisions(0f, yMove))
+			die();
+
+			
 	}
 	
 //	######################################
@@ -38,10 +46,7 @@ public abstract class Creature extends Entity {
 //	######################################
 //	######################################
 	
-	
-	public void encroachX(){
-		
-	}
+
 	
 	public void moveX(){
 //		moving right
