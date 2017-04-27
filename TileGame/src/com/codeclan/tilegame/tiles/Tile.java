@@ -10,6 +10,8 @@ public class Tile {
 	public static Tile[] tiles = new Tile[256];
 	public static Tile space1 = new Space1Tile(0);
 	public static Tile space2 = new Space2Tile(1);
+	public static Tile edge1 = new EdgeTileSolid(2);
+	public static Tile edgeNS = new EdgeTileNotSolid(3);
 //	public static Tile rock1 = new RockTile1(1);
 //	public static Tile planet1 = new PlanetTile1(1);
 

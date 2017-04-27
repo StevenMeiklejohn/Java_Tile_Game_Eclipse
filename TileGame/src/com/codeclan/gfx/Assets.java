@@ -15,7 +15,7 @@ public class Assets {
 	explosion1, explosion2, explosion3, explosion4, explosion5, 
 	ex_alt_1, ex_alt_2, ex_alt_3, ex_alt_4, ex_alt_5, ex_alt_6, ex_alt_7, 
 	ex2_alt_1, ex2_alt_2, ex2_alt_3, ex2_alt_4, ex2_alt_5, ex2_alt_6, ex2_alt_7, ex2_alt_8,
-	space1, space2,
+	space1, space2,edge1,
 	rock1, rock2, rock3, rock4,
 	bRock1, bRock2, bRock3, bRock4, bRock5, bRock6, bRock7,
 	laserA_1, laserA_2, laserA_3, laserA_4, laserA_5, laserA_6, laserA_7, laserA_8, laserA_9, 
@@ -62,6 +62,8 @@ public class Assets {
 		SpriteSheet sheetSpace2 = new SpriteSheet(ImageLoader.loadImage("/textures/Space2.png"));
 		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/myRockSheet2.png"));
 		SpriteSheet sheetRocks2 = new SpriteSheet(ImageLoader.loadImage("/textures/spinning_rock_spriteSheet.png"));
+		SpriteSheet sheetEdge1 = new SpriteSheet(ImageLoader.loadImage("/textures/edgeTile.png"));
+		
 		
 		start_buttons = new BufferedImage[2];
 		startButton1 = sheetButton.crop(0, 0, 115, 64);
@@ -284,6 +286,8 @@ public class Assets {
 		
 		space1 = sheetSpace1.crop(0, 0, 64, 64);
 		space2 = sheetSpace2.crop(0, 0, 64, 64);
+		
+		edge1 = sheetEdge1.crop(0, 0, 64, 64);
 		
 		backdrop1 = sheetBackdrop1.crop(0, 0, 490, 590);
 		backdrop2 = sheetBackdrop2.crop(0, 0, 500, 355);

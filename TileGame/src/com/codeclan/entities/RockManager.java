@@ -75,9 +75,9 @@ public class RockManager {
 
 	
 	public void addCreature(Creature c){
-		if(creatures.size() <= 5){
+
 		creatures.add(c);
-		}
+
 	}
 	
 	public void removeCreature(Creature c){
@@ -87,6 +87,13 @@ public class RockManager {
 	public ArrayList<Creature> getCreatures() {
 		return creatures;
 	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return creatures.size();
+	}
+	
+
 	
 	
 

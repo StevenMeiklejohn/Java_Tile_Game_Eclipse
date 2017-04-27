@@ -99,14 +99,14 @@ public class World {
 		explosion1 = new StaticAnimatedExplosion1(handler, x, y);
 		return explosion1;
 	}
+	
+
 
 	public void update(){
+		rockManager.addCreature(generateRock());
 		entityManager.update();
-//		laserManager.update();
 		explosionManager.update();
 		rockManager.update();
-		rockManager.addCreature(generateRock());
-		
 	}
 	
 	public void render(Graphics g){

@@ -61,6 +61,16 @@ public abstract class Entity {
 			
 			return false;
 		}
+	
+	public boolean checkEntityAtLimits(){
+		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+			if(e.x <= 0 || e.x >= 640)
+				return true;
+			if(e.y <=0 || e.y >= 640)
+				return true;
+		}
+		return false;
+	}
 		
 	
 	

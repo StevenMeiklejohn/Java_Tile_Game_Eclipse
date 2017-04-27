@@ -106,7 +106,7 @@ public class Player extends Creature {
 			xMove = speed;
 	}
 	
-
+	
 
 
 	@Override
