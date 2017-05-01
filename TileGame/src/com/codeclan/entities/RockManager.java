@@ -61,8 +61,8 @@ public class RockManager {
 		System.out.println("Rock Manager render is triggered");
 		for(Creature c : creatures){
 			c.render(g);
-			if(!c.isActive())
-				creatures.remove(c);
+//			if(c.x < 0 || c.x > 660 || c.y < 0 || c.y > 660)
+//				c.die();
 		}
 	}
 	

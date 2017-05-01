@@ -36,14 +36,8 @@ public class EntityManager {
 	public EntityManager(Handler handler, Player player){
 		this.handler = handler;
 		this.player = player;
-//		this.animatedRock1 = animatedRock1;
-//		this.animatedRock2 = animatedRock2;
-//		this.laser = laser;
 		entities = new ArrayList<Entity>();
 		entities.add(player);
-//		entities.add(animatedRock1);
-//		entities.add(animatedRock2);
-
 	}
 	
 	public void update(){

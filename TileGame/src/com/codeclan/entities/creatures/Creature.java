@@ -27,6 +27,11 @@ public abstract class Creature extends Entity {
 		
 	}
 	
+	public void dieQuietly(){
+//		System.out.println("AnimatedRock1 die quietly detected. die() called.");
+//		handler.getWorld().getRockManager().removeCreature(this);
+	}
+	
 	public void move(){
 		if(!checkEntityCollisions(xMove, 0f))
 			moveX();

@@ -6,7 +6,6 @@ import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.ExplosionManager;
-import com.codeclan.entities.LaserManager;
 import com.codeclan.entities.RockManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
@@ -51,7 +50,6 @@ public class World {
 
 
 		entityManager = new EntityManager(handler, player);
-//		laserManager = new LaserManager();
 		rockManager = new RockManager();
 		explosionManager = new ExplosionManager();
 
@@ -59,25 +57,14 @@ public class World {
 		loadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setX(spawnY);
-		
-		
-//		explosionManager.addEntity(generateExplosion(300, 300));
-
-		
+	
 		rockManager.addCreature(generateRock());
-//		entityManager.addEntity(new StaticAnimatedExplosion1(handler, 250, 250));
-//		entityManager.addEntity(new StaticAnimatedExplosion2(handler, 350, 350));
-//		entityManager.addEntity(new StaticAnimatedExplosion3(handler, 400, 400));
-
 	}
 	
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
 	
-//	public LaserManager getLaserManager(){
-//		return laserManager;
-//	}
 	
 	public RockManager getRockManager(){
 		return rockManager;

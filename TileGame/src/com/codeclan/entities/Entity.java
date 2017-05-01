@@ -43,12 +43,12 @@ public abstract class Entity {
 	
 	public abstract void die();
 	
-	public void hurt(int amount){
-		health -= amount;
-		if(health <= 0)
-			active = false;
-		die();
-	}
+//	public void hurt(int amount){
+//		health -= amount;
+//		if(health <= 0)
+//			active = false;
+//		die();
+//	}
 	
 	public boolean checkEntityCollisions(float xOffset, float yOffset){
 		for(Entity e : handler.getWorld().getEntityManager().getEntities()){

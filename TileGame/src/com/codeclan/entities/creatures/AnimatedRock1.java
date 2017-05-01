@@ -58,6 +58,12 @@ public class AnimatedRock1 extends Creature {
 		handler.getWorld().getRockManager().removeCreature(this);
 	}
 	
+
+	public void dieQuietly(){
+		System.out.println("AnimatedRock1 die quietly detected. die() called.");
+		handler.getWorld().getRockManager().removeCreature(this);
+	}
+	
 	@Override
 	public void render(Graphics g) {
 //		use casting to convert int variable to float (as defined by entity)
