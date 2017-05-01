@@ -41,9 +41,23 @@ public class AnimatedRock1 extends Creature {
 //		Animation
 		anim.update();
 //		Move
-//		getInput();
-		move();
+//		move();
+		checkRock1AtBoundary();
 //		handler.getGameCamera().centerOnEntity(this);
+	}
+	
+	private void checkRock1AtBoundary(){
+		if(this.x < -20)
+			this.dieQuietly();
+		if(this.x > 580)
+			this.dieQuietly();
+		if(this.y < -20)
+			this.dieQuietly();
+		if(this.y > 580)
+			this.dieQuietly();
+		else{
+			move();
+		}
 	}
 	
 	public StaticAnimatedExplosion1 generateExplosion(float x, float y){
