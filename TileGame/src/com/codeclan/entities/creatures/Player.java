@@ -19,13 +19,8 @@ public class Player extends Creature {
 	private Animation anim;
 	private Animation laser_anim;
 	private AnimatedLaser1 laser;
-//	private StaticAnimatedLaser1 laser;
-	private StaticAnimatedLaser2 laser2;
-	private AnimatedRock1 rock;
-	private ArrayList<Creature> rockManager;
-	private ArrayList<Entity> laserManager;
+	float life;
 
-	
 	
 
 	public Player(Handler handler, float x, float y) {
@@ -38,9 +33,9 @@ public class Player extends Creature {
 //		size of bounding box inside player tile.
 		bounds.width = 50;
 		bounds.height = 15;
-//		laserManager = new ArrayList<Entity>();
 		anim = new Animation(300, Assets.player_ani);
 		laser_anim = new Animation(100, Assets.laser1_ani);
+		life = 3;
 
 		
 	}
@@ -51,6 +46,7 @@ public class Player extends Creature {
 //		Animation
 		anim.update();
 //		Move
+		checkPlayerAlive();
 		getInput();
 		checkPlayerAtBoundary();
 //		move();
@@ -59,11 +55,18 @@ public class Player extends Creature {
 		checkAttacks();
 	}
 	
+	
+	private boolean checkPlayerAlive(){
+		if(this.life <= 0)
+			return false;
+		return true;
+	}
+	
 
 	
 	
-//	Our attack will function by generating a temporary collision box in the direction of attack.
-//	Should it intersect with another collision box, it will be damged.
+//	Our attack will checked by generating a temporary collision box in the direction of attack.
+//	Should it intersect with other collison boxes, they will ne damaged.
 	private void checkAttacks(){
 		Rectangle cb = getCollisionBounds(0,0);
 		Rectangle ar = new Rectangle();

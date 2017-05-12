@@ -6,6 +6,7 @@ import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.ExplosionManager;
+import com.codeclan.entities.LifeManager;
 import com.codeclan.entities.RockManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
@@ -15,6 +16,7 @@ import com.codeclan.entities.statics.StaticAnimatedExplosion2;
 import com.codeclan.entities.statics.StaticAnimatedExplosion3;
 import com.codeclan.entities.statics.StaticAnimatedLaser1;
 import com.codeclan.entities.statics.StaticAnimatedLaser2;
+import com.codeclan.entities.statics.StaticLifeIcon;
 //import com.codeclan.entities.statics.Heart;
 //import com.codeclan.entities.statics.Rock1;
 //import com.codeclan.gfx.GameCamera;
@@ -37,6 +39,8 @@ public class World {
 //	private LaserManager laserManager;
 	private RockManager rockManager;
 	private ExplosionManager explosionManager;
+	private LifeManager lifeManager;
+	private StaticLifeIcon life;
 //	private GameCamera gameCamera;
 	
 //	Entities
@@ -52,6 +56,9 @@ public class World {
 		entityManager = new EntityManager(handler, player);
 		rockManager = new RockManager();
 		explosionManager = new ExplosionManager();
+		life = new StaticLifeIcon(handler, 32, 32);
+		lifeManager = new LifeManager(handler, player, life);
+
 
 //		entity manager should be above loadWorld
 		loadWorld(path);
@@ -74,6 +81,10 @@ public class World {
 		return explosionManager;
 	}
 	
+	public LifeManager getLifeManager(){
+		return lifeManager;
+	}
+	
 	public AnimatedRock1 generateRock(){
 		Random random = new Random();
 		int genY = random.nextInt(600 - 5 + 1) + 5;
@@ -94,6 +105,7 @@ public class World {
 		entityManager.update();
 		explosionManager.update();
 		rockManager.update();
+		lifeManager.update();
 	}
 	
 	public void render(Graphics g){
@@ -117,6 +129,7 @@ public class World {
 //		laserManager.render(g);
 		explosionManager.render(g);
 		rockManager.render(g);
+		lifeManager.render(g);
 	}
 	
 	public Tile getTile(int x, int y){

@@ -25,6 +25,7 @@ public class Assets {
 	laserB_1, laserB_2, laserB_3, laserB_4, laserB_5, laserB_6, laserB_7, laserB_8, laserB_9,
 	laserB_10, laserB_11, laserB_12,
 	title1, startButton1, startButton2, startButton3,
+	lifeBar1,
 	backdrop1, backdrop2, backdrop3;
 
 	public static BufferedImage[] player_ani, explosion_ani, rock1_ani, 
@@ -63,6 +64,7 @@ public class Assets {
 		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/myRockSheet2.png"));
 		SpriteSheet sheetRocks2 = new SpriteSheet(ImageLoader.loadImage("/textures/spinning_rock_spriteSheet.png"));
 		SpriteSheet sheetEdge1 = new SpriteSheet(ImageLoader.loadImage("/textures/edgeTile.png"));
+		SpriteSheet sheetLife1 = new SpriteSheet(ImageLoader.loadImage("/textures/life_bar_orb.png"));
 		
 		
 		start_buttons = new BufferedImage[2];
@@ -288,6 +290,7 @@ public class Assets {
 		space2 = sheetSpace2.crop(0, 0, 64, 64);
 		
 		edge1 = sheetEdge1.crop(0, 0, 64, 64);
+		lifeBar1 = sheetLife1.crop(0,  0,  64,  64);
 		
 		backdrop1 = sheetBackdrop1.crop(0, 0, 490, 590);
 		backdrop2 = sheetBackdrop2.crop(0, 0, 500, 355);
