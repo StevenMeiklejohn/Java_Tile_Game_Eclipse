@@ -20,7 +20,7 @@ public class Player extends Creature {
 	private Animation anim;
 	private Animation laser_anim;
 	private AnimatedLaser1 laser;
-	float life;
+	int life;
 	StaticAnimatedExplosion1 exp;
 
 	
@@ -53,6 +53,7 @@ public class Player extends Creature {
 		handler.getGameCamera().centerOnEntity(this);
 //		Attack
 		checkAttacks();
+		checkHit();
 
 	}
 	
@@ -79,20 +80,26 @@ public class Player extends Creature {
 		}
 	}
 	
-//	private void checkHit(){
-//		Rectangle cb = getCollisionBounds(0,0);
-//		Rectangle ar = new Rectangle();
-//		ar.x = cb.x = ar.width;
-//		ar.y = bounds.height;
-//
-//		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-////			if(e.equals(this))
-////				continue;
-//			if(e.getCollisionBounds(0, 0).intersects(ar)){
-//				this.die();
-//			}
-//		}
-//	}
+	private void checkHit(){
+		Rectangle cb = getCollisionBounds(0,0);
+		Rectangle ar = new Rectangle();
+		bounds.x = 5;
+		bounds.y = 25;
+//		size of bounding box inside player tile.
+		bounds.width = 50;
+		bounds.height = 15;
+		ar.x = (int) (cb.x - (handler.getGameCamera().getxOffset()));
+		ar.y = (int) (cb.y - (handler.getGameCamera().getxOffset()));
+		ar.width = 50;
+		ar.height = 15;
+
+		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+
+			if(e.getCollisionBounds(0, 0).intersects(ar)){
+				this.die();
+			}
+		}
+	}
 	
 	private void checkPlayerAtBoundary(){
 		if(this.x < 0)
@@ -113,12 +120,13 @@ public class Player extends Creature {
 			return exp;
 		}
 	
+	@Override
 	public void die(){
 		System.out.println("Player die called");
-		setLives(-1);
-		if(this.life <= 0){
-			gameOver();
-		}
+//		setLives(-1);
+//		if(this.life <= 0){
+//			gameOver();
+//		}
 	}
 	
 	
@@ -148,10 +156,10 @@ public class Player extends Creature {
 		g.drawImage(getCurrentAnimationFrame(), 
 				(int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-//		g.setColor(Color.red);
-//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), 
-//				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-//				bounds.width, bounds.height);
+		g.setColor(Color.red);
+		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), 
+				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+				bounds.width, bounds.height);
 	}
 	
 	
@@ -182,7 +190,7 @@ public class Player extends Creature {
 		return 0;
 	}
 	
-	public float getLives(){
+	public int getLives(){
 		return this.life;
 	}
 	

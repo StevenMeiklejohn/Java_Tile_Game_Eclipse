@@ -50,7 +50,7 @@ public class LifeManager {
 	
 	
 	
-	public void populate(float n){
+	public void populate(int n){
 		int x = 20;
 		int y = 20;
 		for( int i=0; i<n; i++){
@@ -61,16 +61,17 @@ public class LifeManager {
 	
 	public void update(){
 		entities.clear();
-		float lives = handler.getWorld().getEntityManager().getPlayer().getLives();
+		int lives = handler.getWorld().getEntityManager().getPlayer().getLives();
+		System.out.println("number of lives:" + lives);
 		populate(lives);
 
-		if(lives < 3){
-			removeRandomEntity();
+		if(lives < 6){
+			loseLife();
 		}
 
 		for (int i = 0; i < entities.size(); i++){
 			Entity e = entities.get(i);
-			System.out.println("Number of lives is " + entities.size());
+//			System.out.println("Number of lives is " + entities.size());
 
 			e.update();
 		}
@@ -99,8 +100,8 @@ public class LifeManager {
 		entities.remove(e);
 	}
 	
-	public void removeRandomEntity(){
-		entities.remove(entities.size() - 1);
+	public void loseLife(){
+		entities.remove(0);
 	}
 	
 	

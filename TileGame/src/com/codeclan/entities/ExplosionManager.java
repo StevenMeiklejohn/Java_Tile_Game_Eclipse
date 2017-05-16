@@ -41,7 +41,7 @@ public class ExplosionManager {
 	public void update(){
 		for (int i = 0; i < entities.size(); i++){
 			Entity e = entities.get(i);
-			System.out.println("Number of runs is " + e.getRuns());
+//			System.out.println("Number of runs is " + e.getRuns());
 			if(e.getRuns() > 100){
 				entities.remove(e);
 			}
@@ -54,7 +54,7 @@ public class ExplosionManager {
 	
 	
 	public void render(Graphics g){
-		System.out.println("explosion Manager render is triggered");
+//		System.out.println("explosion Manager render is triggered");
 		for(Entity e : entities){
 			e.render(g);
 			if(!e.isActive())
