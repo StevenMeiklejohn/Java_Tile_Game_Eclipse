@@ -43,10 +43,6 @@ public class EntityManager {
 	public void update(){
 		for (int i = 0; i < entities.size(); i++){
 			Entity e = entities.get(i);
-			System.out.println("Number of runs is " + e.getRuns());
-			if(e.getRuns() > 30){
-				entities.remove(e);
-			}
 			e.update();
 		}
 		entities.sort(renderSorter);
@@ -111,7 +107,7 @@ public class EntityManager {
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-
+	
 	public ArrayList<Entity> getEntities() {
 		return entities;
 	}

@@ -64,7 +64,7 @@ public class Assets {
 		SpriteSheet sheetRocks = new SpriteSheet(ImageLoader.loadImage("/textures/myRockSheet2.png"));
 		SpriteSheet sheetRocks2 = new SpriteSheet(ImageLoader.loadImage("/textures/spinning_rock_spriteSheet.png"));
 		SpriteSheet sheetEdge1 = new SpriteSheet(ImageLoader.loadImage("/textures/edgeTile.png"));
-		SpriteSheet sheetLife1 = new SpriteSheet(ImageLoader.loadImage("/textures/life_bar_orb.png"));
+		SpriteSheet sheetLife1 = new SpriteSheet(ImageLoader.loadImage("/textures/life_orb_trans.png"));
 		
 		
 		start_buttons = new BufferedImage[2];

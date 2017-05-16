@@ -7,6 +7,7 @@ import com.codeclan.entities.Entity;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.ExplosionManager;
 import com.codeclan.entities.LifeManager;
+import com.codeclan.entities.PlayerManager;
 import com.codeclan.entities.RockManager;
 import com.codeclan.entities.creatures.AnimatedRock1;
 import com.codeclan.entities.creatures.AnimatedRock2;
@@ -40,7 +41,10 @@ public class World {
 	private RockManager rockManager;
 	private ExplosionManager explosionManager;
 	private LifeManager lifeManager;
+	private PlayerManager playerManager;
 	private StaticLifeIcon life;
+	private StaticLifeIcon life2;
+	private StaticLifeIcon life3;
 //	private GameCamera gameCamera;
 	
 //	Entities
@@ -56,14 +60,17 @@ public class World {
 		entityManager = new EntityManager(handler, player);
 		rockManager = new RockManager();
 		explosionManager = new ExplosionManager();
-		life = new StaticLifeIcon(handler, 32, 32);
-		lifeManager = new LifeManager(handler, player, life);
+		lifeManager = new LifeManager(handler);
+		playerManager = new PlayerManager();
+
 
 
 //		entity manager should be above loadWorld
 		loadWorld(path);
-		entityManager.getPlayer().setX(spawnX);
-		entityManager.getPlayer().setX(spawnY);
+		
+		playerManager.addCreature(player);
+		playerManager.getPlayer().setX(spawnX);
+		playerManager.getPlayer().setX(spawnY);
 	
 		rockManager.addCreature(generateRock());
 	}
@@ -87,7 +94,7 @@ public class World {
 	
 	public AnimatedRock1 generateRock(){
 		Random random = new Random();
-		int genY = random.nextInt(600 - 5 + 1) + 5;
+		int genY = random.nextInt(600 - 20 + 1) + 20;
 
 		newRock = new AnimatedRock1(handler, 580, genY);
 		return newRock;
@@ -99,9 +106,12 @@ public class World {
 	}
 	
 
+	
+
 
 	public void update(){
 		rockManager.addCreature(generateRock());
+		playerManager.update();
 		entityManager.update();
 		explosionManager.update();
 		rockManager.update();
@@ -126,7 +136,7 @@ public class World {
 		}
 //		Render entities
 		entityManager.render(g);
-//		laserManager.render(g);
+		playerManager.render(g);
 		explosionManager.render(g);
 		rockManager.render(g);
 		lifeManager.render(g);
@@ -145,15 +155,6 @@ public class World {
 	}
 	
 	private void loadWorld(String path){
-//		width = 5;
-//		height = 5;
-//		tiles = new int[width][height];
-//		
-//		for(int x = 0; x < width; x++){
-//			for(int y = 0; y < height; y++){
-//				tiles[x][y] = 0;
-//			}
-//		}
 		
 		String file = Utils.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
@@ -168,7 +169,6 @@ public class World {
 					tiles[x][y]= Utils.parseInt(tokens[(x + y * width) + 4]);
 				}
 			}
-			
 	}
 	
 

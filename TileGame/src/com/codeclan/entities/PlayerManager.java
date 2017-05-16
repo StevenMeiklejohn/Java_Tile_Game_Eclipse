@@ -15,12 +15,10 @@ import com.codeclan.entities.statics.StaticAnimatedExplosion2;
 import com.codeclan.entities.statics.StaticAnimatedExplosion3;
 import com.codeclan.entities.statics.StaticAnimatedLaser1;
 
-public class RockManager {
+public class PlayerManager {
 	
 
-	private AnimatedRock1 rock1;
-	private AnimatedRock2 rock2;
-	
+	private Player player;
 	
 	private ArrayList<Creature> creatures;
 
@@ -37,7 +35,7 @@ public class RockManager {
 		
 	};
 	
-	public RockManager(){
+	public PlayerManager(){
 
 		creatures = new ArrayList<Creature>();
 
@@ -74,13 +72,17 @@ public class RockManager {
 
 	
 	public void addCreature(Creature c){
-		if(creatures.size() < 15)
 		creatures.add(c);
 
 	}
 	
 	public void removeCreature(Creature c){
 		creatures.remove(c);
+	}
+	
+	public Creature getPlayer(){
+		Creature player = creatures.get(0);
+		return player;
 	}
 	
 	public ArrayList<Creature> getCreatures() {
@@ -91,6 +93,8 @@ public class RockManager {
 		// TODO Auto-generated method stub
 		return creatures.size();
 	}
+	
+
 	
 
 	

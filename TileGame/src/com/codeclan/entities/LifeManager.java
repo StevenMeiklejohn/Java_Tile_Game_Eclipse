@@ -18,6 +18,8 @@ public class LifeManager {
 	private ArrayList<Entity> entities;
 	private Player player;
 	private StaticLifeIcon life;
+	private StaticLifeIcon life2;
+	private StaticLifeIcon life3;
 	private int count;
 	
 //	import comparator (and associated methods) to allow us to sort the render oredr of entity array list.
@@ -32,15 +34,40 @@ public class LifeManager {
 		
 	};
 	
-	public LifeManager(Handler handler, Player player, StaticLifeIcon life){
+	public LifeManager(Handler handler){
 		this.handler = handler;
-		this.player = player;
-		this.life = life;
+		
+
 		entities = new ArrayList<Entity>();
-		entities.add(life);
+//		life = new StaticLifeIcon(handler, 20, 20);
+//		life2 = new StaticLifeIcon(handler, 50, 20);
+//		life3 = new StaticLifeIcon(handler, 80, 20);
+//		entities.add(life);
+//		entities.add(life2);
+//		entities.add(life3);
+
+	}
+	
+	
+	
+	public void populate(float n){
+		int x = 20;
+		int y = 20;
+		for( int i=0; i<n; i++){
+			entities.add(new StaticLifeIcon(handler,x, y));
+			x += 30;
+		}
 	}
 	
 	public void update(){
+		entities.clear();
+		float lives = handler.getWorld().getEntityManager().getPlayer().getLives();
+		populate(lives);
+
+		if(lives < 3){
+			removeRandomEntity();
+		}
+
 		for (int i = 0; i < entities.size(); i++){
 			Entity e = entities.get(i);
 			System.out.println("Number of lives is " + entities.size());
@@ -62,12 +89,18 @@ public class LifeManager {
 	
 
 	
+
+	
 	public void addEntity(Entity e){
 		entities.add(e);
 	}
 	
 	public void removeEntity(Entity e){
 		entities.remove(e);
+	}
+	
+	public void removeRandomEntity(){
+		entities.remove(entities.size() - 1);
 	}
 	
 	
@@ -89,26 +122,7 @@ public class LifeManager {
 		this.handler = handler;
 	}
 
-	public Player getPlayer() {
-		return player;
-	}
-	
-//	public AnimatedRock1 getAnimatedRock1(){
-//		return animatedRock1;
-//	}
-//	
-//	public AnimatedRock2 getAnimatedRock2(){
-//		return animatedRock2;
-//	}
-//	
-//	public StaticAnimatedLaser1 getAnimatedLaser(){
-//		return laser;
-//	}
-	
 
-	public void setPlayer(Player player) {
-		this.player = player;
-	}
 
 	public ArrayList<Entity> getEntities() {
 		return entities;

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
+import com.codeclan.entities.statics.StaticAnimatedExplosion1;
 import com.codeclan.entities.statics.StaticAnimatedLaser1;
 import com.codeclan.entities.statics.StaticAnimatedLaser2;
 import com.codeclan.gfx.Animation;
@@ -20,6 +21,7 @@ public class Player extends Creature {
 	private Animation laser_anim;
 	private AnimatedLaser1 laser;
 	float life;
+	StaticAnimatedExplosion1 exp;
 
 	
 
@@ -35,7 +37,7 @@ public class Player extends Creature {
 		bounds.height = 15;
 		anim = new Animation(300, Assets.player_ani);
 		laser_anim = new Animation(100, Assets.laser1_ani);
-		life = 3;
+		life = 6;
 
 		
 	}
@@ -45,24 +47,14 @@ public class Player extends Creature {
 	public void update() {
 //		Animation
 		anim.update();
-//		Move
-		checkPlayerAlive();
 		getInput();
 		checkPlayerAtBoundary();
 //		move();
 		handler.getGameCamera().centerOnEntity(this);
 //		Attack
 		checkAttacks();
-	}
-	
-	
-	private boolean checkPlayerAlive(){
-		if(this.life <= 0)
-			return false;
-		return true;
-	}
-	
 
+	}
 	
 	
 //	Our attack will checked by generating a temporary collision box in the direction of attack.
@@ -70,26 +62,37 @@ public class Player extends Creature {
 	private void checkAttacks(){
 		Rectangle cb = getCollisionBounds(0,0);
 		Rectangle ar = new Rectangle();
-		int arSize = 20;
 		
 		if(handler.getKeyManager().fire){
 		ar.x = cb.x = ar.width;
 		ar.y = cb.y = ar.height;
-//		System.out.println("Fire key triggered");
 		laser = new AnimatedLaser1(handler, this.x + 40, this.y);
 		handler.getWorld().getEntityManager().addEntity(laser);
 		}
 
+		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+			if(e.equals(this))
+				continue;
+			if(e.getCollisionBounds(0, 0).intersects(ar)){
+				e.die();
+			}
+		}
+	}
+	
+//	private void checkHit(){
+//		Rectangle cb = getCollisionBounds(0,0);
+//		Rectangle ar = new Rectangle();
+//		ar.x = cb.x = ar.width;
+//		ar.y = bounds.height;
 //
 //		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-//			if(e.equals(this))
-//				continue;
+////			if(e.equals(this))
+////				continue;
 //			if(e.getCollisionBounds(0, 0).intersects(ar)){
-//				e.hurt(1);
+//				this.die();
 //			}
 //		}
-//		}
-	}
+//	}
 	
 	private void checkPlayerAtBoundary(){
 		if(this.x < 0)
@@ -105,10 +108,24 @@ public class Player extends Creature {
 		}
 	}
 	
-	
+	public StaticAnimatedExplosion1 generateExplosion(float x, float y){
+		 exp = new StaticAnimatedExplosion1(handler, x, y);
+			return exp;
+		}
 	
 	public void die(){
-		System.out.println("Player destroyed");
+		System.out.println("Player die called");
+		setLives(-1);
+		if(this.life <= 0){
+			gameOver();
+		}
+	}
+	
+	
+	public void gameOver(){
+		System.out.println("Game over triggered");
+		handler.getWorld().getExplosionManager().addEntity(generateExplosion(this.x, this.y));
+		handler.getWorld().getEntityManager().removeCreature(this);
 	}
 	
 	private void getInput(){
@@ -123,8 +140,6 @@ public class Player extends Creature {
 		if(handler.getKeyManager().right)
 			xMove = speed;
 	}
-	
-	
 
 
 	@Override
@@ -165,6 +180,14 @@ public class Player extends Creature {
 	
 	public int getRuns(){
 		return 0;
+	}
+	
+	public float getLives(){
+		return this.life;
+	}
+	
+	public void setLives(int change){
+		this.life += change;
 	}
 	
 
