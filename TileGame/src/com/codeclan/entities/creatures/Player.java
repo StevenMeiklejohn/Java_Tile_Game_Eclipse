@@ -53,7 +53,7 @@ public class Player extends Creature {
 		handler.getGameCamera().centerOnEntity(this);
 //		Attack
 		checkAttacks();
-		checkHit();
+//		checkHit();
 
 	}
 	
@@ -68,7 +68,7 @@ public class Player extends Creature {
 		ar.x = cb.x = ar.width;
 		ar.y = cb.y = ar.height;
 		laser = new AnimatedLaser1(handler, this.x + 40, this.y);
-		handler.getWorld().getEntityManager().addEntity(laser);
+		handler.getWorld().getLaserManager().addEntity(laser);
 		}
 
 		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
@@ -80,26 +80,26 @@ public class Player extends Creature {
 		}
 	}
 	
-	private void checkHit(){
-		Rectangle cb = getCollisionBounds(0,0);
-		Rectangle ar = new Rectangle();
-		bounds.x = 5;
-		bounds.y = 25;
-//		size of bounding box inside player tile.
-		bounds.width = 50;
-		bounds.height = 15;
-		ar.x = (int) (cb.x - (handler.getGameCamera().getxOffset()));
-		ar.y = (int) (cb.y - (handler.getGameCamera().getxOffset()));
-		ar.width = 50;
-		ar.height = 15;
-
-		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-
-			if(e.getCollisionBounds(0, 0).intersects(ar)){
-				this.die();
-			}
-		}
-	}
+//	private void checkHit(){
+//		Rectangle cb = getCollisionBounds(0,0);
+//		Rectangle ar = new Rectangle();
+//		bounds.x = 5;
+//		bounds.y = 25;
+////		size of bounding box inside player tile.
+//		bounds.width = 50;
+//		bounds.height = 15;
+//		ar.x = (int) (cb.x - (handler.getGameCamera().getxOffset()));
+//		ar.y = (int) (cb.y - (handler.getGameCamera().getxOffset()));
+//		ar.width = 50;
+//		ar.height = 15;
+//
+//		for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+//
+//			if(e.getCollisionBounds(0, 0).intersects(ar)){
+//				this.die();
+//			}
+//		}
+//	}
 	
 	private void checkPlayerAtBoundary(){
 		if(this.x < 0)

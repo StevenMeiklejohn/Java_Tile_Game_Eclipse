@@ -1,0 +1,188 @@
+package com.codeclan.tilegame.worlds;
+
+import java.awt.Graphics;
+
+import com.codeclan.Handler;
+import com.codeclan.entities.Entity;
+import com.codeclan.entities.EntityManager;
+import com.codeclan.entities.ExplosionManager;
+import com.codeclan.entities.LaserManager;
+import com.codeclan.entities.LifeManager;
+import com.codeclan.entities.PlayerManager;
+import com.codeclan.entities.RockManager;
+import com.codeclan.entities.creatures.AnimatedRock1;
+import com.codeclan.entities.creatures.AnimatedRock2;
+import com.codeclan.entities.creatures.Player;
+import com.codeclan.entities.statics.StaticAnimatedExplosion1;
+import com.codeclan.entities.statics.StaticAnimatedExplosion2;
+import com.codeclan.entities.statics.StaticAnimatedExplosion3;
+import com.codeclan.entities.statics.StaticAnimatedLaser1;
+import com.codeclan.entities.statics.StaticAnimatedLaser2;
+import com.codeclan.entities.statics.StaticLifeIcon;
+//import com.codeclan.entities.statics.Heart;
+//import com.codeclan.entities.statics.Rock1;
+//import com.codeclan.gfx.GameCamera;
+//import com.codeclan.tilegame.Game;
+import com.codeclan.tilegame.tiles.Tile;
+import com.codeclan.utils.Utils;
+import java.util.Random;
+
+public class World {
+	private Handler handler;
+	private int width;
+	private int height;
+	private int spawnX;
+	private int spawnY;
+	private int[][] tiles;
+	private StaticAnimatedLaser1 laser;
+	private StaticAnimatedExplosion1 explosion1;
+	private AnimatedRock1 rock;
+	private AnimatedRock1 newRock;
+//	private LaserManager laserManager;
+	private RockManager rockManager;
+	private ExplosionManager explosionManager;
+	private LifeManager lifeManager;
+	private PlayerManager playerManager;
+	private LaserManager laserManager;
+	private StaticLifeIcon life;
+	private StaticLifeIcon life2;
+	private StaticLifeIcon life3;
+//	private GameCamera gameCamera;
+	
+//	Entities
+	private EntityManager entityManager;
+	
+	public World(Handler handler, String path){
+		this.handler = handler;
+		Player player = new Player(handler, 100, 100);
+
+
+
+
+		entityManager = new EntityManager(handler, player);
+		rockManager = new RockManager();
+		explosionManager = new ExplosionManager();
+		lifeManager = new LifeManager(handler);
+		playerManager = new PlayerManager();
+		laserManager = new LaserManager();
+
+
+
+//		entity manager should be above loadWorld
+		loadWorld(path);
+		
+		playerManager.addCreature(player);
+		playerManager.getPlayer().setX(spawnX);
+		playerManager.getPlayer().setX(spawnY);
+	
+		rockManager.addCreature(generateRock());
+	}
+	
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+	
+	
+	public RockManager getRockManager(){
+		return rockManager;
+	}
+	
+	public ExplosionManager getExplosionManager(){
+		return explosionManager;
+	}
+	
+	public LifeManager getLifeManager(){
+		return lifeManager;
+	}
+	
+	public AnimatedRock1 generateRock(){
+		Random random = new Random();
+		int genY = random.nextInt(600 - 20 + 1) + 20;
+
+		newRock = new AnimatedRock1(handler, 580, genY);
+		return newRock;
+	}
+	
+	public StaticAnimatedExplosion1 generateExplosion(float x, float y){
+		explosion1 = new StaticAnimatedExplosion1(handler, x, y);
+		return explosion1;
+	}
+	
+
+	
+
+
+	public void update(){
+		rockManager.addCreature(generateRock());
+		playerManager.update();
+		laserManager.update();
+		entityManager.update();
+		explosionManager.update();
+		rockManager.update();
+		lifeManager.update();
+	}
+	
+	public void render(Graphics g){
+//		make the render more efficient by limiting the computer to only render tiles within the current camera view.
+//		Ensure xStart is greater than 0 by using Math.max. So if the game.getGameCamera.getOffset number is greater than 0, it will be selected.
+//		To demonstrate in action add +1 to the end of TILE_WIDTH
+		int xStart = (int) Math.max(0,handler.getGameCamera().getxOffset() / Tile.TILE_WIDTH);
+		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILE_WIDTH + 1);
+		int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILE_HEIGHT);
+		int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.TILE_HEIGHT + 1);
+		
+		for(int y = yStart; y < yEnd; y++){
+			for(int x = xStart;  x < xEnd; x++){
+				getTile(x, y).render(g, 
+						(int) (x * Tile.TILE_WIDTH - handler.getGameCamera().getxOffset()), 
+						(int) (y * Tile.TILE_HEIGHT - handler.getGameCamera().getyOffset()));
+			}
+		}
+//		Render entities
+		entityManager.render(g);
+		playerManager.render(g);
+		laserManager.render(g);
+		explosionManager.render(g);
+		rockManager.render(g);
+		lifeManager.render(g);
+	}
+	
+	public Tile getTile(int x, int y){
+//		prevent crash if player is outside the map boundary by applying a forest tile.
+		if(x < 0 || y < 0 || x >= width || y >= height)
+			return Tile.space1;
+		
+		Tile t = Tile.tiles[tiles[x][y]];
+		if(t == null)
+			return Tile.space2;
+		else
+		return t;
+	}
+	
+	private void loadWorld(String path){
+		
+		String file = Utils.loadFileAsString(path);
+		String[] tokens = file.split("\\s+");
+		width = Utils.parseInt(tokens[0]);
+		height = Utils.parseInt(tokens[1]);
+		spawnX = Utils.parseInt(tokens[2]);
+		spawnY = Utils.parseInt(tokens[3]);
+		
+		tiles = new int[width][height];
+			for (int y = 0; y < height; y++){
+				for(int x = 0; x < width; x++){
+					tiles[x][y]= Utils.parseInt(tokens[(x + y * width) + 4]);
+				}
+			}
+	}
+	
+
+	
+	public int getWidth(){
+		return this.width;
+	}
+	
+	public int getHeight(){
+		return this.height;
+	}
+}

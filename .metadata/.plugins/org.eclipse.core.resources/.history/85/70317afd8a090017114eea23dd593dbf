@@ -1,7 +1,0 @@
-package com.codeclan.entities.statics;
-
-public class StaticAnimatedExplosion1 extends StaticEntity {
-	
-	
-
-}

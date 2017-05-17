@@ -1,0 +1,16 @@
+package com.codeclan.tilegame.tiles;
+
+import com.codeclan.gfx.Assets;
+
+public class EdgeTile1 extends Tile {
+	
+	public EdgeTile1(int id) {
+		super(Assets.edge1, id);
+	}
+	
+	@Override
+	public boolean isSolid(){
+		return true;
+	}
+
+}

@@ -6,6 +6,7 @@ import com.codeclan.Handler;
 import com.codeclan.entities.Entity;
 import com.codeclan.entities.EntityManager;
 import com.codeclan.entities.ExplosionManager;
+import com.codeclan.entities.LaserManager;
 import com.codeclan.entities.LifeManager;
 import com.codeclan.entities.PlayerManager;
 import com.codeclan.entities.RockManager;
@@ -42,6 +43,7 @@ public class World {
 	private ExplosionManager explosionManager;
 	private LifeManager lifeManager;
 	private PlayerManager playerManager;
+	private LaserManager laserManager;
 	private StaticLifeIcon life;
 	private StaticLifeIcon life2;
 	private StaticLifeIcon life3;
@@ -62,6 +64,7 @@ public class World {
 		explosionManager = new ExplosionManager();
 		lifeManager = new LifeManager(handler);
 		playerManager = new PlayerManager();
+		laserManager = new LaserManager();
 
 
 
@@ -92,6 +95,10 @@ public class World {
 		return lifeManager;
 	}
 	
+	public LaserManager getLaserManager(){
+		return laserManager;
+	}
+	
 	public AnimatedRock1 generateRock(){
 		Random random = new Random();
 		int genY = random.nextInt(600 - 20 + 1) + 20;
@@ -112,6 +119,7 @@ public class World {
 	public void update(){
 		rockManager.addCreature(generateRock());
 		playerManager.update();
+		laserManager.update();
 		entityManager.update();
 		explosionManager.update();
 		rockManager.update();
@@ -137,6 +145,7 @@ public class World {
 //		Render entities
 		entityManager.render(g);
 		playerManager.render(g);
+		laserManager.render(g);
 		explosionManager.render(g);
 		rockManager.render(g);
 		lifeManager.render(g);
